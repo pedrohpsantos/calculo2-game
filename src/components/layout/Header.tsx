@@ -51,7 +51,7 @@ export function Header() {
           </Button>
         ) : (
           <button 
-            onClick={() => navigate('/login')}
+            onClick={() => navigate('/profile')}
             className="flex items-center gap-2 hover:bg-white/10 p-2 rounded-full transition-colors border border-transparent hover:border-white/20"
           >
             {user.avatar_url ? (

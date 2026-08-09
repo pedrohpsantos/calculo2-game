@@ -19,6 +19,7 @@ interface AuthState {
   signUpWithEmail: (email: string, pass: string, name: string) => Promise<void>
   loginWithGoogle: () => Promise<void>
   logout: () => Promise<void>
+  updateProfile: (updates: Partial<UserProfile>) => Promise<void>
 }
 
 export const useAuthStore = create<AuthState>()((set) => ({
@@ -59,9 +60,10 @@ export const useAuthStore = create<AuthState>()((set) => ({
 
         if (profileError && profileError.code === 'PGRST116') {
           // No profile, create it
+          const defaultName = user.user_metadata?.full_name || user.user_metadata?.name || user.user_metadata?.display_name || user.email?.split('@')[0] || 'Estudante'
           const { data: newProfile, error: insertError } = await supabase
             .from('profiles')
-            .insert([{ id: user.id, display_name: 'Aluno Anônimo' }])
+            .insert([{ id: user.id, display_name: defaultName }])
             .select()
             .single()
             
@@ -140,6 +142,28 @@ export const useAuthStore = create<AuthState>()((set) => ({
       await useAuthStore.getState().initializeAuth()
     } catch (error) {
       console.error('Logout error:', error)
+    } finally {
+      set({ isLoading: false })
+    }
+  },
+  updateProfile: async (updates) => {
+    try {
+      set({ isLoading: true })
+      const currentUser = get().user
+      if (!currentUser) return
+
+      const { data, error } = await supabase
+        .from('profiles')
+        .update(updates)
+        .eq('id', currentUser.id)
+        .select()
+        .single()
+        
+      if (error) throw error
+      set({ user: { ...currentUser, ...data } })
+    } catch (error) {
+      console.error('Error updating profile:', error)
+      throw error
     } finally {
       set({ isLoading: false })
     }

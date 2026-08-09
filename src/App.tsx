@@ -13,6 +13,7 @@ import { ChallengeActivity } from '@/pages/modules/ChallengeActivity'
 import { QuizActivity } from '@/pages/modules/QuizActivity'
 import { TheoryActivity } from '@/pages/modules/TheoryActivity'
 import { FlashcardActivity } from '@/pages/modules/FlashcardActivity'
+import { Profile } from '@/pages/Profile'
 import { useAuthStore } from '@/store/authStore'
 import { useProgressStore } from '@/store/progressStore'
 import { EasterEggs } from '@/components/game/EasterEggs'
@@ -41,6 +42,7 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/credits" element={<Credits />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/profile" element={<Profile />} />
 
         <Route element={<ModuleLayout />}>
           <Route path="/modules" element={<ModuleSelector />} />
