@@ -1,6 +1,7 @@
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities'
 import { clsx } from 'clsx'
+import { MathRenderer } from '@/components/game/MathRenderer'
 
 interface DraggableCardProps {
   id: string
@@ -31,7 +32,7 @@ export function DraggableCard({ id, text, disabled }: DraggableCardProps) {
         disabled && "opacity-50 cursor-not-allowed hover:bg-transparent"
       )}
     >
-      {text}
+      {/[\\]|[_^]/.test(text) ? <MathRenderer expression={text} /> : text}
     </div>
   )
 }

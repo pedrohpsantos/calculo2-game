@@ -75,7 +75,7 @@ export const seriesQuestions: QuizQuestion[] = [
       { id: 'a1', text: 'Sempre convergem para o valor c', correct: false },
       { id: 'a2', text: 'Ambas convergem ou ambas divergem', correct: true },
       { id: 'a3', text: 'O teste é inconclusivo', correct: false },
-      { id: 'a4', text: 'a_n converge e b_n diverge', correct: false },
+      { id: 'a4', text: 'a_n \\text{ converge e } b_n \\text{ diverge}', correct: false },
     ],
   },
   {

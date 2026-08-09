@@ -84,7 +84,7 @@ export const odeHigherOrderQuestions: QuizQuestion[] = [
     difficulty: 'medium',
     answers: [
       { id: 'a1', text: 'Por um fator de t', correct: true },
-      { id: 'a2', text: 'Por e^t', correct: false },
+      { id: 'a2', text: '\\text{Por } e^t', correct: false },
       { id: 'a3', text: 'Pela frequência omega', correct: false },
       { id: 'a4', text: 'Por zero', correct: false },
     ],

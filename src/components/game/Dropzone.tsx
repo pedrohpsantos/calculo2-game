@@ -1,6 +1,7 @@
 import { useDroppable } from '@dnd-kit/core'
 import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
+import { MathRenderer } from '@/components/game/MathRenderer'
 
 interface DropzoneProps {
   id: string
@@ -32,7 +33,7 @@ export function Dropzone({ id, isCorrect, droppedItem }: DropzoneProps) {
     >
       {droppedItem ? (
         <div className="font-body font-bold text-lg text-white">
-          {droppedItem.text}
+          {/[\\]|[_^]/.test(droppedItem.text) ? <MathRenderer expression={droppedItem.text} /> : droppedItem.text}
         </div>
       ) : (
         <span className="text-text-muted font-body font-medium">Arraste a resposta aqui</span>

@@ -39,10 +39,16 @@ export const useProgressStore = create<ProgressState>()(
       if (error) throw error
       
       if (data) {
-        const progressMap = data.reduce((acc, curr) => {
-          acc[curr.module_slug] = curr as unknown as UserProgress
-          return acc
-        }, {} as Record<string, UserProgress>)
+        const localProgress = get().progress;
+        const progressMap = { ...localProgress };
+        data.forEach((curr) => {
+          const local = progressMap[curr.module_slug];
+          const remoteTime = new Date(curr.last_played_at || 0).getTime();
+          const localTime = new Date(local?.last_played_at || 0).getTime();
+          if (!local || remoteTime > localTime) {
+            progressMap[curr.module_slug] = curr as unknown as UserProgress;
+          }
+        });
         set({ progress: progressMap })
       }
     } catch (error) {

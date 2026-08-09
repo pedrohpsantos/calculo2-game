@@ -7,9 +7,9 @@ export const powerSeriesMethodQuestions: QuizQuestion[] = [
     category: 'Pontos Ordinários',
     difficulty: 'easy',
     answers: [
-      { id: 'a1', text: 'P(x_0) é diferente de zero', correct: true },
-      { id: 'a2', text: 'P(x_0) é exatamente zero', correct: false },
-      { id: 'a3', text: 'Q(x_0) e R(x_0) se cancelam', correct: false },
+      { id: 'a1', text: 'P(x_0) \\text{ é diferente de zero}', correct: true },
+      { id: 'a2', text: 'P(x_0) \\text{ é exatamente zero}', correct: false },
+      { id: 'a3', text: 'Q(x_0) \\text{ e } R(x_0) \\text{ se cancelam}', correct: false },
       { id: 'a4', text: 'A equação não possui derivadas', correct: false },
     ],
   },
@@ -31,7 +31,7 @@ export const powerSeriesMethodQuestions: QuizQuestion[] = [
     category: 'Frobenius',
     difficulty: 'medium',
     answers: [
-      { id: 'a1', text: 'Multiplicamos a série toda por x^r', correct: true },
+      { id: 'a1', text: '\\text{Multiplicamos a série toda por } x^r', correct: true },
       { id: 'a2', text: 'Dividimos tudo por n!', correct: false },
       { id: 'a3', text: 'Excluímos os termos pares', correct: false },
       { id: 'a4', text: 'Aderimos a Integrais de Linha', correct: false },
