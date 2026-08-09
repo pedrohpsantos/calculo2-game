@@ -9,6 +9,10 @@ import { useProgressStore } from '@/store/progressStore'
 import { useAuthStore } from '@/store/authStore'
 import { useSound } from '@/hooks/useSound'
 
+function stripLatex(text: string) {
+  return text.replace(/\$([^\$]+)\$/g, '$1')
+}
+
 // Temporarily define empty arrays until subagent generates them. 
 // We will use dynamic imports or just hardcode imports later.
 // For now, we'll try to import them but handle if they don't exist yet.
@@ -146,9 +150,9 @@ export function FlashcardActivity() {
                     {flashcards[currentIndex].category}
                   </span>
                 </div>
-                <div className="flex-1 flex flex-col items-center justify-center text-center">
-                  <h3 className="text-2xl text-white font-bold leading-relaxed [text-wrap:balance]">
-                    {flashcards[currentIndex].front}
+                <div className="flex-1 flex flex-col items-center justify-center text-center w-full overflow-hidden">
+                  <h3 className="text-lg md:text-xl text-white font-bold leading-relaxed [text-wrap:balance] break-words hyphens-auto w-full">
+                    {stripLatex(flashcards[currentIndex].front)}
                   </h3>
                   {flashcards[currentIndex].frontLatex && (
                     <div className="mt-6 p-4 bg-black/40 rounded-xl w-full border border-white/5">
@@ -166,9 +170,9 @@ export function FlashcardActivity() {
                 className="absolute inset-0 bg-white rounded-3xl p-8 flex flex-col shadow-2xl"
                 style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
               >
-                <div className="flex-1 flex flex-col items-center justify-center text-center">
-                  <h3 className="text-2xl text-gray-900 font-bold leading-relaxed [text-wrap:balance]">
-                    {flashcards[currentIndex].back}
+                <div className="flex-1 flex flex-col items-center justify-center text-center w-full overflow-hidden">
+                  <h3 className="text-lg md:text-xl text-gray-900 font-bold leading-relaxed [text-wrap:balance] break-words hyphens-auto w-full">
+                    {stripLatex(flashcards[currentIndex].back)}
                   </h3>
                   {flashcards[currentIndex].backLatex && (
                     <div className="mt-6 p-4 bg-gray-100 rounded-xl w-full border border-gray-200 text-gray-900">

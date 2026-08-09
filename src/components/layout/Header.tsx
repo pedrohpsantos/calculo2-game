@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-3 py-3 md:px-6 md:py-4 bg-surface/80 backdrop-blur-md border-b border-white/10">
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-3 md:px-8 md:py-4 bg-surface/80 backdrop-blur-md border-b border-white/10">
         <div className="flex items-center gap-3">
           <button 
             className="md:hidden text-white hover:bg-white/10 p-2 rounded-md transition-colors"
@@ -22,7 +22,7 @@ export function Header() {
             <Menu size={24} />
           </button>
           
-          <Link to="/" className="font-display text-primary text-xs md:text-sm hover:scale-105 transition-transform truncate mr-2">
+          <Link to="/" className="font-display text-primary text-xs md:text-sm hover:scale-105 transition-transform truncate">
             Cálculo 2
           </Link>
         </div>

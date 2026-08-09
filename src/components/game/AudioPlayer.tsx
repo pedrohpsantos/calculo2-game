@@ -13,9 +13,6 @@ export function AudioPlayer() {
       aria-label={isMusicPlaying ? 'Pausar música' : 'Tocar música'}
     >
       {isMusicPlaying ? <Volume2 size={18} /> : <VolumeX size={18} />}
-      <span className="font-mono text-xs">
-        {isMusicPlaying ? 'Pause' : 'Play'}
-      </span>
     </button>
   )
 }
