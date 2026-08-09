@@ -10,7 +10,7 @@ import { useAuthStore } from '@/store/authStore'
 import { useSound } from '@/hooks/useSound'
 
 function stripLatex(text: string) {
-  return text.replace(/\$([^\$]+)\$/g, '$1')
+  return text.replace(/\$([^$]+)\$/g, '$1')
 }
 
 // Temporarily define empty arrays until subagent generates them. 
