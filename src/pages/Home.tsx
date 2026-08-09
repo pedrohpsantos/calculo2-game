@@ -3,7 +3,8 @@ import { motion } from 'framer-motion'
 import bg1 from '@/assets/backgrounds/1.png'
 import { MathRenderer } from '@/components/game/MathRenderer'
 import { Button } from '@/components/ui/Button'
-import confetti from 'canvas-confetti'
+import confettiPkg from 'canvas-confetti'
+const confetti = (confettiPkg as any).default || confettiPkg
 
 const floatingSymbols = [
   { symbol: '\\int_a^b', top: '15%', left: '8%' },

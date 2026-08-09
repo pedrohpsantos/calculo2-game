@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import confetti from 'canvas-confetti'
+import confettiPkg from 'canvas-confetti'
+const confetti = (confettiPkg as any).default || confettiPkg
 import { motion, AnimatePresence } from 'framer-motion'
 
 function useKeySequence(sequence: string, callback: () => void) {
@@ -31,8 +32,7 @@ export function EasterEggs() {
     setTimeout(() => setActiveEgg(null), duration)
   }
 
-  // Easter Egg 1: "tatiane" - The teacher
-  useKeySequence('tatiane', () => {
+  const triggerTatiane = () => {
     confetti({
       particleCount: 200,
       spread: 160,
@@ -40,10 +40,9 @@ export function EasterEggs() {
       colors: ['#FFD700', '#FFA500', '#FF8C00']
     })
     triggerEgg('tatiane')
-  })
+  }
 
-  // Easter Egg 2: "laplace" - The Magic
-  useKeySequence('laplace', () => {
+  const triggerLaplace = () => {
     const duration = 3000;
     const end = Date.now() + duration;
 
@@ -68,7 +67,20 @@ export function EasterEggs() {
       }
     }());
     triggerEgg('laplace')
-  })
+  }
+
+  useEffect(() => {
+    (window as any).triggerTatiane = triggerTatiane;
+    (window as any).triggerLaplace = triggerLaplace;
+    return () => {
+      delete (window as any).triggerTatiane;
+      delete (window as any).triggerLaplace;
+    }
+  }, [])
+
+  // Maintain desktop keyboard shortcuts for convenience
+  useKeySequence('tatiane', triggerTatiane)
+  useKeySequence('laplace', triggerLaplace)
 
   return (
     <AnimatePresence>

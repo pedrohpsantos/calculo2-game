@@ -10,6 +10,30 @@ export function Header() {
   const { user, isAnonymous } = useAuthStore()
   const navigate = useNavigate()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [titleClicks, setTitleClicks] = useState(0)
+  const [avatarClicks, setAvatarClicks] = useState(0)
+
+  const handleTitleClick = (e: React.MouseEvent) => {
+    const newClicks = titleClicks + 1
+    setTitleClicks(newClicks)
+    if (newClicks >= 5) {
+      if ((window as any).triggerTatiane) (window as any).triggerTatiane();
+      setTitleClicks(0)
+    }
+    setTimeout(() => setTitleClicks(0), 2000)
+  }
+
+  const handleAvatarClick = (e: React.MouseEvent) => {
+    const newClicks = avatarClicks + 1
+    setAvatarClicks(newClicks)
+    if (newClicks >= 5) {
+      if ((window as any).triggerLaplace) (window as any).triggerLaplace();
+      setAvatarClicks(0)
+    } else if (newClicks === 1) {
+      navigate('/profile')
+    }
+    setTimeout(() => setAvatarClicks(0), 2000)
+  }
 
   return (
     <>
@@ -22,9 +46,12 @@ export function Header() {
             <Menu size={24} />
           </button>
           
-          <Link to="/" className="font-display text-primary text-xs md:text-sm hover:scale-105 transition-transform truncate">
+          <div 
+            onClick={handleTitleClick}
+            className="cursor-pointer font-display text-primary text-xs md:text-sm hover:scale-105 transition-transform truncate"
+          >
             Cálculo 2
-          </Link>
+          </div>
         </div>
       <nav className="flex items-center gap-2 md:gap-6">
         <div className="hidden md:flex items-center gap-6">
@@ -51,7 +78,7 @@ export function Header() {
           </Button>
         ) : (
           <button 
-            onClick={() => navigate('/profile')}
+            onClick={handleAvatarClick}
             className="flex items-center gap-2 hover:bg-white/10 p-2 rounded-full transition-colors border border-transparent hover:border-white/20"
           >
             {user.avatar_url ? (

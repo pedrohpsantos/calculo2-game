@@ -14,7 +14,8 @@ import { Button } from '@/components/ui/Button'
 import { useProgressStore } from '@/store/progressStore'
 import { useAuthStore } from '@/store/authStore'
 import { useSound } from '@/hooks/useSound'
-import confetti from 'canvas-confetti'
+import confettiPkg from 'canvas-confetti'
+const confetti = (confettiPkg as any).default || confettiPkg
 
 // We will use dynamic imports or just hardcode imports for now:
 import { challenge as odeFirstOrderChallenge } from '@/data/ode-first-order/challenge'
