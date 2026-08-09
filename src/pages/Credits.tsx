@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Code, GraduationCap } from 'lucide-react'
+import { ArrowLeft, Code, GraduationCap, Github, Trophy } from 'lucide-react'
 import bg9 from '@/assets/backgrounds/9.png'
 import { Button } from '@/components/ui/Button'
 
@@ -44,18 +44,32 @@ export function Credits() {
           </p>
           
           <div className="pt-4 border-t border-white/10">
-            <p className="flex items-center justify-center gap-2 text-text-muted mb-2 font-bold uppercase tracking-widest text-xs">
+            <p className="flex items-center justify-center gap-2 text-primary mb-4 font-bold uppercase tracking-widest text-xs">
               <Code size={14} /> Desenvolvedores
             </p>
-            <p className="text-lg font-display text-white">
-              Lucas De Paula Leal
-            </p>
-            <p className="text-lg font-display text-white">
-              & 
-            </p>
-            <p className="text-lg font-display text-white">
-              Pedro Henrique Pereira Santos
-            </p>
+            <div className="flex flex-col items-center gap-3">
+              <a 
+                href="https://github.com/lucaspaulaleal" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-lg font-display text-white hover:text-primary transition-colors bg-surface/30 px-4 py-2 rounded-xl border border-white/5 hover:border-primary/50 hover:scale-105"
+              >
+                <Trophy size={16} className="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                Lucas De Paula Leal
+                <Github size={18} className="text-text-muted group-hover:text-primary transition-colors" />
+              </a>
+              
+              <a 
+                href="https://github.com/pedrohpsantos" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-lg font-display text-white hover:text-primary transition-colors bg-surface/30 px-4 py-2 rounded-xl border border-white/5 hover:border-primary/50 hover:scale-105"
+              >
+                <Trophy size={16} className="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                Pedro Henrique Pereira Santos
+                <Github size={18} className="text-text-muted group-hover:text-primary transition-colors" />
+              </a>
+            </div>
           </div>
         </div>
 
