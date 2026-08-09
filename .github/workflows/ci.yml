@@ -105,7 +105,14 @@ jobs:
         cache-dependency-path: backend/package-lock.json
     - run: cd backend && npm install
     - name: Test Backend
-      run: cd backend && npm run test
+      run: |
+        cd backend
+        npm run test > test-output.txt
+        cat test-output.txt
+        echo "### Resumo dos Testes (Backend) 🧪" >> $GITHUB_STEP_SUMMARY
+        echo "\`\`\`text" >> $GITHUB_STEP_SUMMARY
+        cat test-output.txt >> $GITHUB_STEP_SUMMARY
+        echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
 
   deploy-backend:
     needs: test-backend
