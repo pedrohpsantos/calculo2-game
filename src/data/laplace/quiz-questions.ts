@@ -64,5 +64,19 @@ export const laplaceQuestions: QuizQuestion[] = [
       { id: 'a3', text: 'Oscilações senoidais', correct: false },
       { id: 'a4', text: 'Decaimento radioativo constante', correct: false },
     ],
+  },
+  {
+    id: 'laplace-q6',
+    question: 'De acordo com o Teorema do Valor Final, a que limite no domínio (s) corresponde o limite de f(t) quando t tende ao infinito?',
+    category: 'Limites Assintóticos',
+    difficulty: 'medium',
+    mode: 'complete',
+    latexPrefix: '\\lim_{t \\to \\infty} f(t) = \\lim_{s \\to 0}',
+    answers: [
+      { id: 'a1', text: 'F(s)', correct: false },
+      { id: 'a2', text: 'sF(s)', correct: true },
+      { id: 'a3', text: 'F(s)/s', correct: false },
+      { id: 'a4', text: 's^2F(s)', correct: false },
+    ],
   }
 ]

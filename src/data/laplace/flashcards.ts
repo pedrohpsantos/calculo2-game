@@ -48,5 +48,19 @@ export const flashcards: Flashcard[] = [
     category: 'Técnica',
     front: 'Como realizar a Transformada Inversa de Laplace de equações complexas?',
     back: 'Usualmente aplicam-se Frações Parciais para quebrar $Y(s)$ em partes mais simples e consulta-se a tabela.'
+  },
+  {
+    id: 'laplace-8',
+    category: 'Teoremas',
+    front: 'O que o Teorema do Valor Inicial nos permite descobrir?',
+    back: 'Permite encontrar o valor de $f(0^+)$ calculando o limite de $sF(s)$ quando $s \\to \\infty$.',
+    backLatex: '\\lim_{t \\to 0^+} f(t) = \\lim_{s \\to \\infty} sF(s)'
+  },
+  {
+    id: 'laplace-9',
+    category: 'Teoremas',
+    front: 'O que afirma o Teorema do Valor Final de Laplace?',
+    back: 'O limite de $f(t)$ no infinito (estado estacionário) é o limite de $sF(s)$ quando $s$ tende a zero.',
+    backLatex: '\\lim_{t \\to \\infty} f(t) = \\lim_{s \\to 0} sF(s)'
   }
 ]

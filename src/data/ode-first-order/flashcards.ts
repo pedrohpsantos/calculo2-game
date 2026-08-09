@@ -49,5 +49,19 @@ export const flashcards: Flashcard[] = [
     front: 'Qual substituição usar para uma EDO homogênea (onde funções têm o mesmo grau)?',
     back: 'A substituição $y = vx$, que transforma a equação em uma EDO separável.',
     backLatex: 'y = vx \\implies dy = v dx + x dv'
+  },
+  {
+    id: 'ode-first-order-8',
+    category: 'Transformação',
+    front: 'Qual o formato padrão de uma EDO de Bernoulli e qual sua substituição resolutiva?',
+    frontLatex: 'y\' + P(x)y = Q(x)y^n',
+    back: 'É resolvida através da substituição $v = y^{1-n}$, transformando-a em uma linear.',
+    backLatex: 'v = y^{1-n}'
+  },
+  {
+    id: 'ode-first-order-9',
+    category: 'Teorema',
+    front: 'O que assegura o Teorema de Picard-Lindelöf (Existência e Unicidade)?',
+    back: 'Garante que se a função $f(x,y)$ e $\\frac{\\partial f}{\\partial y}$ forem contínuas, o PVI tem solução única, ou seja, as curvas de solução nunca se cruzam.'
   }
 ]

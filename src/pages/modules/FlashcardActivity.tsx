@@ -32,7 +32,7 @@ const getFlashcardsBySlug = (slug?: string): Flashcard[] | null => {
       case 'ode-systems': return odeSystemsFlashcards || []
       default: return null
     }
-  } catch (e) {
+  } catch {
     return [] // In case the subagent hasn't created the files yet, we won't crash
   }
 }

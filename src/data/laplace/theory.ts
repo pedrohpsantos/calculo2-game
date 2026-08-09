@@ -66,5 +66,15 @@ export const laplaceTheory: TheorySlide[] = [
       "A beleza do método é que a resposta final, y(t), surge magicamente completa, já englobando as **condições de contorno iniciais**."
     ],
     latex: 'y(t) = \\mathcal{L}^{-1}\\{Y(s)\\}'
+  },
+  {
+    id: 'laplace-t7',
+    title: 'Teorema do Valor Inicial e Final 🏁',
+    points: [
+      "O **Teorema do Valor Inicial** permite descobrir o comportamento de uma função no instante inicial $t \\to 0^+$ analisando o limite da sua transformada $sF(s)$ para $s \\to \\infty$.",
+      "O **Teorema do Valor Final** é a contraparte para o regime estacionário: prevemos o comportamento assintótico de $f(t)$ quando $t \\to \\infty$ tomando o limite de $sF(s)$ quando $s \\to 0$.",
+      "Estes teoremas são extremamente poderosos na engenharia de controle, pois permitem prever a resposta do sistema nos extremos de tempo sem a necessidade de calcular a Transformada Inversa."
+    ],
+    latex: '\\lim_{t \\to \\infty} f(t) = \\lim_{s \\to 0} sF(s)'
   }
 ]

@@ -50,5 +50,15 @@ export const powerSeriesMethodTheory: TheorySlide[] = [
       "Suas **duas raízes (r1, r2)** determinam infalivelmente não apenas o formato das soluções, mas a própria existência de oscilações ou logaritmos."
     ],
     latex: 'r(r-1) + p_0 r + q_0 = 0'
+  },
+  {
+    id: 'psm-t6',
+    title: 'Funções Especiais: Bessel e Legendre',
+    points: [
+      "As clássicas Equações de Legendre e de Bessel são frequentemente solucionadas pelos métodos de Séries e de Frobenius, respectivamente.",
+      "Como resultado, geram famílias de funções ortogonais tão vitais para a física matemática que ganham status de 'Funções Especiais'.",
+      "Os Polinômios de Legendre $P_n(x)$ e as Funções de Bessel $J_\\nu(x)$ formam a base para o estudo de vibrações, calor e potenciais esféricos/cilíndricos."
+    ],
+    latex: 'x^2 y^{\\prime\\prime} + x y^{\\prime} + (x^2 - \\nu^2)y = 0 \\quad \\text{(Bessel)}'
   }
 ]

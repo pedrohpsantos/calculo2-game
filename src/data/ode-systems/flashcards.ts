@@ -40,5 +40,18 @@ export const flashcards: Flashcard[] = [
     front: 'Como solucionar Sistemas Não-Homogêneos que contêm força externa $F(t)$?',
     back: 'Usando a Matriz Fundamental $\\Phi(t)$ em uma variação dos parâmetros para matrizes.',
     backLatex: '\\mathbf{X}_p(t) = \\Phi(t) \\int \\Phi^{-1}(t) F(t) dt'
+  },
+  {
+    id: 'ode-systems-7',
+    category: 'Estabilidade',
+    front: 'No Plano de Fase, o que indica que a origem é um Ponto de Sela (Saddle Point)?',
+    back: 'A matriz possui autovalores reais com sinais opostos (um $\\lambda > 0$ e um $\\lambda < 0$).'
+  },
+  {
+    id: 'ode-systems-8',
+    category: 'Estabilidade',
+    front: 'O que geram autovalores complexos puros ($\\lambda = \\pm i\\beta$) no Plano de Fase?',
+    back: 'Geram um Centro (Center), indicando trajetórias fechadas e circulares em torno da origem, uma estabilidade neutra.',
+    backLatex: '\\lambda = \\pm i\\beta'
   }
 ]

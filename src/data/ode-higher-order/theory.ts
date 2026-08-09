@@ -5,7 +5,7 @@ export const odeHigherOrderTheory: TheorySlide[] = [
     id: 'ho-t1',
     title: 'EDOs Lineares Homogêneas',
     points: [
-      "Avançando para ordens superiores, equações de Segunda Ordem introduzem a **Aceleração (y\'\')** matemática, essencial para entender a inércia e a força de restauração na física clássica.",
+      "Avançando para ordens superiores, equações de Segunda Ordem introduzem a **Aceleração (y'')** matemática, essencial para entender a inércia e a força de restauração na física clássica.",
       "Uma EDO é dita **homogênea** quando o lado direito é estritamente zero, modelando sistemas autônomos fechados, como osciladores harmônicos, circuitos RLC não alimentados ou sistemas massa-mola soltos.",
       "A fundação teórica dessas EDOs repousa sobre a intuição genial de Euler: a função que é proporcional às suas próprias derivadas é a Exponencial. Assim, a solução procurada assume rigidamente a forma **e^{rt}**."
     ],
@@ -70,5 +70,25 @@ export const odeHigherOrderTheory: TheorySlide[] = [
       "Através da construção de um delicado sistema, o determinante **Wronskiano, W**, assume a responsabilidade central de encontrar, através da integração estrita, o perfil exato dessas novas funções variáveis de parâmetros."
     ],
     latex: 'u_1^{\\prime} = \\frac{-y_2 F(t)}{W} \\quad \\text{e} \\quad u_2^{\\prime} = \\frac{y_1 F(t)}{W}'
+  },
+  {
+    id: 'ho-t8',
+    title: 'Redução de Ordem',
+    points: [
+      "Quando já conhecemos uma solução **y_1(t)** de uma EDO linear homogênea de 2ª ordem, podemos deduzir a segunda solução linearmente independente.",
+      "A técnica de Redução de Ordem baseia-se em assumir que a segunda solução possui a forma **y_2(t) = v(t) y_1(t)**, onde v(t) é uma função a ser determinada.",
+      "Ao substituir essa premissa na equação, a dependência em v cai, resultando em uma EDO de 1ª ordem para a derivada de v (v'), resolvível por separação de variáveis."
+    ],
+    latex: 'y_2 = v(t) y_1(t)'
+  },
+  {
+    id: 'ho-t9',
+    title: 'Ressonância e Batimento (Oscilações)',
+    points: [
+      "Na física de osciladores, se a frequência de uma força externa se igualar à frequência natural do sistema não amortecido, ocorre a **Ressonância**, causando o crescimento linear da amplitude.",
+      "Matematicamente, isso ocorre quando a raiz da equação característica do termo forçante coincide com a raiz do sistema homogêneo, multiplicando a solução particular por 't'.",
+      "Já o fenômeno do **Batimento** surge quando as frequências são muito próximas, mas não idênticas, resultando em uma superposição cuja amplitude oscila periodicamente entre máximos e mínimos."
+    ],
+    latex: 'y_p(t) = t(A \\cos(\\omega t) + B \\sin(\\omega t))'
   }
 ]

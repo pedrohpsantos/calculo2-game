@@ -9,7 +9,7 @@ import { Credits } from '@/pages/Credits'
 import { Leaderboard } from '@/pages/Leaderboard'
 import { ModuleSelector } from '@/pages/modules/ModuleSelector'
 import { ModuleHub } from '@/pages/modules/ModuleHub'
-import { PlaceholderActivity } from '@/pages/modules/PlaceholderActivity'
+import { ChallengeActivity } from '@/pages/modules/ChallengeActivity'
 import { QuizActivity } from '@/pages/modules/QuizActivity'
 import { TheoryActivity } from '@/pages/modules/TheoryActivity'
 import { FlashcardActivity } from '@/pages/modules/FlashcardActivity'
@@ -46,7 +46,7 @@ export default function App() {
           <Route path="/modules/:moduleSlug/theory" element={<TheoryActivity />} />
           <Route path="/modules/:moduleSlug/quiz" element={<QuizActivity />} />
           <Route path="/modules/:moduleSlug/flashcards" element={<FlashcardActivity />} />
-          <Route path="/modules/:moduleSlug/challenge" element={<PlaceholderActivity activity="Desafio" />} />
+          <Route path="/modules/:moduleSlug/challenge" element={<ChallengeActivity />} />
         </Route>
       </Routes>
     </BrowserRouter>

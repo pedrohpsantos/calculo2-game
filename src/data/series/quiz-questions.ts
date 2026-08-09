@@ -65,5 +65,31 @@ export const seriesQuestions: QuizQuestion[] = [
       { id: 'a3', text: 'Negativa e oscilante', correct: false },
       { id: 'a4', text: 'Diferenciável e periódica', correct: false },
     ],
+  },
+  {
+    id: 'series-q6',
+    question: 'No Teste de Comparação por Limite entre a_n e b_n, se o limite for c > 0, qual a conclusão?',
+    category: 'Testes de Comparação',
+    difficulty: 'medium',
+    answers: [
+      { id: 'a1', text: 'Sempre convergem para o valor c', correct: false },
+      { id: 'a2', text: 'Ambas convergem ou ambas divergem', correct: true },
+      { id: 'a3', text: 'O teste é inconclusivo', correct: false },
+      { id: 'a4', text: 'a_n converge e b_n diverge', correct: false },
+    ],
+  },
+  {
+    id: 'series-q7',
+    question: 'Determine o limite a ser calculado no Teste da Raiz de Cauchy:',
+    category: 'Teste da Raiz',
+    difficulty: 'easy',
+    mode: 'complete',
+    latexPrefix: 'L = \\lim_{n \\to \\infty} ',
+    answers: [
+      { id: 'a1', text: '\\sqrt[n]{|a_{n+1}|}', correct: false },
+      { id: 'a2', text: '\\sqrt[n]{|a_n|}', correct: true },
+      { id: 'a3', text: '|\\frac{a_{n+1}}{a_n}|', correct: false },
+      { id: 'a4', text: 'a_n^{1/2}', correct: false },
+    ],
   }
 ]

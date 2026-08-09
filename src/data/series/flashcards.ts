@@ -47,5 +47,19 @@ export const flashcards: Flashcard[] = [
     category: 'Série Alternada',
     front: 'Qual a diferença entre Convergência Absoluta e Condicional numa Série Alternada?',
     back: 'É absoluta se convergir mesmo ignorando os sinais alternados. É condicional se converge com os sinais, mas diverge sem eles.'
+  },
+  {
+    id: 'series-8',
+    category: 'Teste da Raiz',
+    front: 'O que avalia o Teste da Raiz de Cauchy?',
+    back: 'Avalia o limite da raiz enésima de $|a_n|$. Se $L < 1$ converge, se $L > 1$ diverge.',
+    backLatex: 'L = \\lim_{n \\to \\infty} \\sqrt[n]{|a_n|}'
+  },
+  {
+    id: 'series-9',
+    category: 'Teste',
+    front: 'O que diz o Teste de Comparação por Limite quando o limite de $a_n/b_n$ for $c > 0$?',
+    frontLatex: '\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = c > 0',
+    back: 'Garante que ambas as séries compartilham o mesmo comportamento: ou as duas convergem, ou as duas divergem.'
   }
 ]

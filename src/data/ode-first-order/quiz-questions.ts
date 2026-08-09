@@ -62,5 +62,29 @@ export const odeFirstOrderQuestions: QuizQuestion[] = [
       { id: 'a3', text: 'Equação Linear Simples', correct: false },
       { id: 'a4', text: 'Equação de Bernoulli', correct: false },
     ],
+  },
+  {
+    id: 'ode-q6',
+    question: 'Qual substituição é usada para linearizar uma Equação de Bernoulli da forma y\' + P(x)y = Q(x)y^n?',
+    category: 'Bernoulli',
+    difficulty: 'medium',
+    answers: [
+      { id: 'a1', text: 'v = y^{1-n}', correct: true },
+      { id: 'a2', text: 'v = y^n', correct: false },
+      { id: 'a3', text: 'v = y^{n-1}', correct: false },
+      { id: 'a4', text: 'v = vx', correct: false },
+    ],
+  },
+  {
+    id: 'ode-q7',
+    question: 'Segundo o Teorema de Existência e Unicidade (Picard-Lindelöf), o que garante a unicidade da solução para y\' = f(x,y)?',
+    category: 'Teorema',
+    difficulty: 'hard',
+    answers: [
+      { id: 'a1', text: 'A continuidade da derivada parcial de f em relação a y.', correct: true },
+      { id: 'a2', text: 'O fato de f(x,y) ser homogênea.', correct: false },
+      { id: 'a3', text: 'A exatidão da equação.', correct: false },
+      { id: 'a4', text: 'A função ser integrável.', correct: false },
+    ],
   }
 ]

@@ -41,5 +41,18 @@ export const flashcards: Flashcard[] = [
     front: 'O que é a Equação Indicial?',
     back: 'Uma quadrática formada pelos termos de menor grau no Método de Frobenius, cujas raízes definem o formato da solução.',
     backLatex: 'r(r-1) + p_0 r + q_0 = 0'
+  },
+  {
+    id: 'psm-7',
+    category: 'Equação de Bessel',
+    front: 'A Equação de Bessel de ordem $\\nu$ é um exemplo de EDO tratada por Frobenius. Qual a sua forma?',
+    back: 'Suas soluções incluem as célebres Funções de Bessel de primeira espécie $J_\\nu(x)$.',
+    backLatex: 'x^2 y^{\\prime\\prime} + x y^{\\prime} + (x^2 - \\nu^2)y = 0'
+  },
+  {
+    id: 'psm-8',
+    category: 'Polinômios de Legendre',
+    front: 'As soluções polinomiais da Equação de Legendre são conhecidas como?',
+    back: 'Polinômios de Legendre $P_n(x)$, que surgem na resolução por séries no ponto ordinário $x=0$.'
   }
 ]

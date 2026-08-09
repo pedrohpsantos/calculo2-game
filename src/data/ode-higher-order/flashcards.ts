@@ -48,5 +48,18 @@ export const flashcards: Flashcard[] = [
     front: 'Quais as derivadas dos parâmetros na Variação dos Parâmetros?',
     back: 'Expressam as derivadas $u_1\'$ e $u_2\'$ em função de $y_1$, $y_2$, $F(t)$ e o Wronskiano.',
     backLatex: 'u_1^{\\prime} = \\frac{-y_2 F(t)}{W} \\quad \\text{e} \\quad u_2^{\\prime} = \\frac{y_1 F(t)}{W}'
+  },
+  {
+    id: 'ode-higher-order-8',
+    category: 'Técnica',
+    front: 'Qual é o pressuposto fundamental do método de Redução de Ordem?',
+    back: 'Que uma segunda solução linearmente independente pode ser obtida multiplicando-se a solução conhecida por uma função $v(t)$.',
+    backLatex: 'y_2(t) = v(t) y_1(t)'
+  },
+  {
+    id: 'ode-higher-order-9',
+    category: 'Física',
+    front: 'O que caracteriza matematicamente a Ressonância em um sistema massa-mola?',
+    back: 'Ocorre quando a frequência da força externa coincide com a frequência natural do sistema, levando a soluções particulares multiplicadas por $t$.'
   }
 ]

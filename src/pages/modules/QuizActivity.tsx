@@ -151,24 +151,31 @@ export function QuizActivity() {
             </h2>
             
             {question.mode === 'complete' ? (
-              <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-4 bg-black/40 p-6 rounded-2xl border" style={{ borderColor: `${mod.color}30` }}>
-                {question.latexPrefix && (
-                  <div className="text-xl md:text-2xl text-white"><MathRenderer expression={question.latexPrefix} /></div>
-                )}
-                
                 <DndContext onDragEnd={handleDragEnd}>
-                  <div className="relative">
-                    <Dropzone 
-                      id="dropzone" 
-                      isCorrect={isCorrect}
-                      droppedItem={droppedId ? question.answers.find(a => a.id === droppedId) : null}
-                    />
-                  </div>
+                  <div className="flex flex-col items-center w-full">
+                    {/* The formula block */}
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-4 bg-black/40 p-6 rounded-2xl border w-full max-w-2xl mx-auto" style={{ borderColor: `${mod.color}30` }}>
+                      {question.latexPrefix && (
+                        <div className="text-xl md:text-2xl text-white"><MathRenderer expression={question.latexPrefix} /></div>
+                      )}
+                      
+                      <div className="relative">
+                        <Dropzone 
+                          id="dropzone" 
+                          isCorrect={isCorrect}
+                          droppedItem={droppedId ? question.answers.find(a => a.id === droppedId) : null}
+                        />
+                      </div>
 
-                  <div className="fixed bottom-0 left-0 right-0 p-4 bg-surface-dark/95 backdrop-blur-xl border-t border-white/10 z-50">
-                    <div className="max-w-4xl mx-auto">
+                      {question.latexSuffix && (
+                        <div className="text-xl md:text-2xl text-white"><MathRenderer expression={question.latexSuffix} /></div>
+                      )}
+                    </div>
+
+                    {/* The draggable cards block */}
+                    <div className="mt-8 pt-6 border-t border-white/10 w-full">
                       <p className="text-center text-text-muted text-sm mb-4">Arraste a opção correta para a lacuna acima</p>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
                         {question.answers.map(answer => (
                           <DraggableCard 
                             key={answer.id} 
@@ -181,11 +188,6 @@ export function QuizActivity() {
                     </div>
                   </div>
                 </DndContext>
-
-                {question.latexSuffix && (
-                  <div className="text-xl md:text-2xl text-white"><MathRenderer expression={question.latexSuffix} /></div>
-                )}
-              </div>
             ) : (
               question.latex && (
                 <div className="mt-2 flex justify-center w-full">

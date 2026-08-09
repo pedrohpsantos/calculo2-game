@@ -50,5 +50,15 @@ export const odeSystemsTheory: TheorySlide[] = [
       "A **Matriz Fundamental, Φ(t)** e a sua própria função matriz inversa atuam conjuntamente num núcleo de integral multiplicador de matrizes complexo, mesclando magistralmente a memória histórica de resposta do próprio sistema nativo acoplado com a instabilidade oriunda da nova **força pertubadora externa temporal**!"
     ],
     latex: '\\mathbf{X}_p(t) = \\Phi(t) \\int \\Phi^{-1}(t) F(t) dt'
+  },
+  {
+    id: 'sys-t6',
+    title: 'Plano de Fase e Análise de Estabilidade 🧭',
+    points: [
+      "O comportamento qualitativo das soluções de um sistema 2x2 pode ser visualizado no **Plano de Fase**, onde as trajetórias formam retratos de fase paramétricos.",
+      "A natureza dos autovalores determina a estabilidade geométrica da origem: autovalores reais com o mesmo sinal formam **Nós**, sinais opostos formam **Selas**.",
+      "Autovalores complexos conjugados geram rotações: se a parte real é zero, temos **Centros** estáveis; se não nula, formam-se **Espirais** (atratoras ou repulsoras)."
+    ],
+    latex: '\\lambda_{1,2} = \\alpha \\pm i\\beta'
   }
 ]

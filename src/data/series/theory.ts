@@ -70,5 +70,25 @@ export const seriesTheory: TheorySlide[] = [
       "Séries assim possuem uma sobreposição milagrosa de sinais opostos restritivos perfeitamente perdoando a divergência original dos termos, garantindo então a chamada salvadora **Convergência Condicional**."
     ],
     latex: '\\sum_{n=1}^{\\infty} (-1)^{n-1} b_n'
+  },
+  {
+    id: 'series-t8',
+    title: 'Série p e Teste de Comparação por Limite',
+    points: [
+      "A **Série p** é a métrica padrão para testes: converge estritamente para p > 1 e diverge para p ≤ 1.",
+      "O **Teste de Comparação por Limite** avalia o limite de a_n / b_n no infinito para confrontar uma série com uma métrica conhecida.",
+      "Se o limite resultar em um valor finito e positivo c > 0, as duas séries compartilham a mesma natureza: ou ambas convergem, ou ambas divergem."
+    ],
+    latex: '\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = c \\quad (c > 0)'
+  },
+  {
+    id: 'series-t9',
+    title: 'Teste da Raiz de Cauchy',
+    points: [
+      "Um teste poderoso e complementar ao Teste da Razão é o **Teste da Raiz de Cauchy**, ideal para termos elevados a potências de n.",
+      "O método consiste em extrair o limite no infinito da raiz enésima do valor absoluto do enésimo termo.",
+      "Se o limite L < 1, a série converge absolutamente. Se L > 1, diverge. Se L = 1, o teste falha em concluir algo."
+    ],
+    latex: 'L = \\lim_{n \\to \\infty} \\sqrt[n]{|a_n|}'
   }
 ]

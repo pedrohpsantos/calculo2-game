@@ -55,5 +55,17 @@ export const odeSystemsQuestions: QuizQuestion[] = [
       { id: 'a3', text: '\\text{adj}(\\Phi(t))', correct: false },
       { id: 'a4', text: '\\text{tr}(\\Phi(t))', correct: false },
     ],
+  },
+  {
+    id: 'sys-q5',
+    question: 'No Plano de Fase, qual é a classificação do ponto de equilíbrio (origem) se os autovalores da matriz A são reais e de sinais opostos (um positivo e outro negativo)?',
+    category: 'Estabilidade',
+    difficulty: 'medium',
+    answers: [
+      { id: 'a1', text: 'Ponto de Sela', correct: true },
+      { id: 'a2', text: 'Nó Atrator', correct: false },
+      { id: 'a3', text: 'Centro', correct: false },
+      { id: 'a4', text: 'Espiral Repulsora', correct: false },
+    ],
   }
 ]

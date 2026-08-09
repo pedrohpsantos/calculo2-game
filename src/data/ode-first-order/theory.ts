@@ -25,7 +25,7 @@ export const odeTheory: TheorySlide[] = [
     id: 'ode-t3',
     title: 'Fator Integrante: O Buff de Status ⚔️',
     points: [
-      "Quando uma EDO Linear de 1ª Ordem está no formato padrão **y\' + P(x)y = Q(x)** e não é separável, invocamos o poderoso **Fator Integrante, μ(x)**.",
+      "Quando uma EDO Linear de 1ª Ordem está no formato padrão **y' + P(x)y = Q(x)** e não é separável, invocamos o poderoso **Fator Integrante, μ(x)**.",
       "Esta função multiplicadora especial, definida como a exponencial da integral de P(x), é injetada estrategicamente em toda a equação para 'forçar' a simplificação matemática.",
       "A mágica ocorre imediatamente: o lado esquerdo colapsa e se condensa perfeitamente na **Derivada do Produto** de [μ(x) · y], permitindo a solução com uma simples integração direta."
     ],
@@ -60,5 +60,25 @@ export const odeTheory: TheorySlide[] = [
       "No clássico e temido problema dos **Tanques de Mistura**, aplicamos diretamente a EDO linear considerando a variação do soluto como o fluxo que entra menos o fluxo que sai: **Taxa In - Taxa Out**."
     ],
     latex: '\\frac{dx}{dt} = \\text{Taxa}_{\\text{in}} - \\text{Taxa}_{\\text{out}}'
+  },
+  {
+    id: 'ode-t7',
+    title: 'EDOs de Bernoulli',
+    points: [
+      "Uma EDO de Bernoulli possui a forma **y' + P(x)y = Q(x)y^n**. Apesar de ser não-linear, ela esconde uma estrutura linear que pode ser revelada.",
+      "A chave para resolvê-la é a engenhosa substituição **v = y^{1-n}**. Essa mudança de variável lineariza perfeitamente a equação.",
+      "Após a substituição, a equação se transforma em uma EDO Linear de 1ª ordem padrão para a variável v, que pode ser resolvida usando o Fator Integrante."
+    ],
+    latex: 'v = y^{1-n}'
+  },
+  {
+    id: 'ode-t8',
+    title: 'Teorema de Existência e Unicidade (Picard-Lindelöf)',
+    points: [
+      "Antes de procurar a solução de um Problema de Valor Inicial (PVI), devemos nos perguntar: será que essa solução existe? Ela é única?",
+      "O Teorema de Picard-Lindelöf garante que, se a função **f(x,y)** e sua derivada parcial em relação a **y** forem contínuas em um retângulo ao redor do ponto inicial, a existência e a unicidade estão garantidas.",
+      "Isso significa que as curvas integrais (soluções) nunca se cruzam nesse domínio, estabelecendo uma ordem estrita e previsibilidade no comportamento dos sistemas determinísticos."
+    ],
+    latex: '\\frac{\\partial f}{\\partial y}'
   }
 ]

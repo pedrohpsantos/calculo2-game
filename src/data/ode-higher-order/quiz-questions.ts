@@ -64,5 +64,29 @@ export const odeHigherOrderQuestions: QuizQuestion[] = [
       { id: 'a3', text: 'Divide por t', correct: false },
       { id: 'a4', text: 'Tira a raiz quadrada', correct: false },
     ],
+  },
+  {
+    id: 'ho-q6',
+    question: 'No método de Redução de Ordem, sabendo que y_1(t) é solução, procuramos y_2(t) em que forma?',
+    category: 'Redução de Ordem',
+    difficulty: 'medium',
+    answers: [
+      { id: 'a1', text: 'y_2(t) = v(t) \\cdot y_1(t)', correct: true },
+      { id: 'a2', text: 'y_2(t) = y_1(t) + v(t)', correct: false },
+      { id: 'a3', text: 'y_2(t) = e^{y_1(t)}', correct: false },
+      { id: 'a4', text: 'y_2(t) = v(t) / y_1(t)', correct: false },
+    ],
+  },
+  {
+    id: 'ho-q7',
+    question: 'O fenômeno matemático da ressonância pura exige multiplicar a solução particular pelo quê?',
+    category: 'Aplicações',
+    difficulty: 'medium',
+    answers: [
+      { id: 'a1', text: 'Por um fator de t', correct: true },
+      { id: 'a2', text: 'Por e^t', correct: false },
+      { id: 'a3', text: 'Pela frequência omega', correct: false },
+      { id: 'a4', text: 'Por zero', correct: false },
+    ],
   }
 ]

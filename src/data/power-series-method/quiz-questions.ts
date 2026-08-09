@@ -63,5 +63,29 @@ export const powerSeriesMethodQuestions: QuizQuestion[] = [
       { id: 'a3', text: '2', correct: true },
       { id: 'a4', text: '\\infty', correct: false },
     ],
+  },
+  {
+    id: 'psm-q6',
+    question: 'Qual importante família de funções especiais surge como solução da EDO x^2 y\'\' + x y\' + (x^2 - \\nu^2)y = 0 pelo Método de Frobenius?',
+    category: 'Funções Especiais',
+    difficulty: 'hard',
+    answers: [
+      { id: 'a1', text: 'Polinômios de Hermite', correct: false },
+      { id: 'a2', text: 'Funções de Bessel', correct: true },
+      { id: 'a3', text: 'Série de Maclaurin', correct: false },
+      { id: 'a4', text: 'Polinômios de Legendre', correct: false },
+    ],
+  },
+  {
+    id: 'psm-q7',
+    question: 'Qual equação diferencial linear tem como soluções típicas os Polinômios de Legendre P_n(x)?',
+    category: 'Equações Clássicas',
+    difficulty: 'medium',
+    answers: [
+      { id: 'a1', text: '(1-x^2)y\'\' - 2xy\' + n(n+1)y = 0', correct: true },
+      { id: 'a2', text: 'y\'\' + y = 0', correct: false },
+      { id: 'a3', text: 'x^2 y\'\' + x y\' + (x^2 - \\nu^2)y = 0', correct: false },
+      { id: 'a4', text: 'y\'\' - xy = 0', correct: false },
+    ],
   }
 ]
