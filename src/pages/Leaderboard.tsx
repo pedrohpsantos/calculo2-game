@@ -23,8 +23,13 @@ export function Leaderboard() {
 
         if (error) throw error
         // Filter out completely new anonymous users with 0 score and default name
-        const filtered = data.filter(p => p.total_score > 0 || p.display_name !== 'Aluno Anônimo')
-        setLeaders(filtered)
+        const filtered = data
+          .filter(p => (p.total_score || 0) > 0 || p.display_name !== 'Aluno Anônimo')
+          .map(p => ({
+            ...p,
+            total_score: p.total_score || 0
+          }))
+        setLeaders(filtered as UserProfile[])
       } catch (error) {
         console.error('Error fetching leaderboard:', error)
       } finally {

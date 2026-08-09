@@ -12,13 +12,13 @@ import { useSound } from '@/hooks/useSound'
 // Temporarily define empty arrays until subagent generates them. 
 // We will use dynamic imports or just hardcode imports later.
 // For now, we'll try to import them but handle if they don't exist yet.
-import { seriesFlashcards } from '@/data/series/flashcards'
-import { laplaceFlashcards } from '@/data/laplace/flashcards'
-import { odeFirstOrderFlashcards } from '@/data/ode-first-order/flashcards'
-import { taylorFlashcards } from '@/data/taylor/flashcards'
-import { powerSeriesMethodFlashcards } from '@/data/power-series-method/flashcards'
-import { odeHigherOrderFlashcards } from '@/data/ode-higher-order/flashcards'
-import { odeSystemsFlashcards } from '@/data/ode-systems/flashcards'
+import { flashcards as seriesFlashcards } from '@/data/series/flashcards'
+import { flashcards as laplaceFlashcards } from '@/data/laplace/flashcards'
+import { flashcards as odeFirstOrderFlashcards } from '@/data/ode-first-order/flashcards'
+import { flashcards as taylorFlashcards } from '@/data/taylor/flashcards'
+import { flashcards as powerSeriesMethodFlashcards } from '@/data/power-series-method/flashcards'
+import { flashcards as odeHigherOrderFlashcards } from '@/data/ode-higher-order/flashcards'
+import { flashcards as odeSystemsFlashcards } from '@/data/ode-systems/flashcards'
 
 const getFlashcardsBySlug = (slug?: string): Flashcard[] | null => {
   try {
