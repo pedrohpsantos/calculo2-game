@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Code, GraduationCap, Github, Trophy } from 'lucide-react'
+import { ArrowLeft, Code, GraduationCap, Trophy } from 'lucide-react'
 import bg9 from '@/assets/backgrounds/9.png'
 import { Button } from '@/components/ui/Button'
 
@@ -56,7 +56,6 @@ export function Credits() {
               >
                 <Trophy size={16} className="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                 Lucas De Paula Leal
-                <Github size={18} className="text-text-muted group-hover:text-primary transition-colors" />
               </a>
               
               <a 
@@ -67,7 +66,6 @@ export function Credits() {
               >
                 <Trophy size={16} className="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                 Pedro Henrique Pereira Santos
-                <Github size={18} className="text-text-muted group-hover:text-primary transition-colors" />
               </a>
             </div>
           </div>
