@@ -80,7 +80,7 @@ export function Profile() {
           <h1 className="text-3xl font-pixel text-yellow-400">Meu Perfil</h1>
           {!isAnonymous && (
             <Button 
-              variant="outline" 
+              variant="danger" 
               onClick={async () => {
                 await useAuthStore.getState().logout()
                 navigate('/')
