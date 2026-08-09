@@ -3,8 +3,8 @@ import type { Module } from '@/types/module'
 export const modules: Module[] = [
   {
     slug: 'sequences-series',
-    title: 'Sequências e Séries',
-    description: 'Convergência, testes, séries de potências',
+    title: 'Sequências e Séries Infinitas',
+    description: 'Teste da Integral, Comparação, Razão, Raiz, Séries Alternadas, Convergência Absoluta e Condicional',
     icon: '\\sum_{n=1}^{\\infty}',
     color: '#4ECDC4',
     unlocked: true,
@@ -12,8 +12,8 @@ export const modules: Module[] = [
   },
   {
     slug: 'taylor',
-    title: 'Fórmula de Taylor',
-    description: 'Expansão, erro, aproximações',
+    title: 'Séries de Taylor e Maclaurin',
+    description: 'Séries de Potências, Clone Polinomial, Resto de Lagrange e Aproximações',
     icon: 'T_n(x)',
     color: '#45B7D1',
     unlocked: false,
@@ -22,7 +22,7 @@ export const modules: Module[] = [
   {
     slug: 'ode-first-order',
     title: 'EDOs de 1ª Ordem',
-    description: 'Separáveis, lineares, PVI, aplicações',
+    description: 'Classificação, Lineares, Separáveis, Exatas, Homogêneas e Aplicações',
     icon: '\\frac{dy}{dt}',
     color: '#FFC800',
     unlocked: false,
@@ -30,8 +30,8 @@ export const modules: Module[] = [
   },
   {
     slug: 'ode-higher-order',
-    title: 'EDOs de Ordem Superior',
-    description: 'Homogêneas, equação característica',
+    title: 'EDOs de 2ª Ordem',
+    description: 'Homogêneas, Wronskiano, Teorema de Abel, Não Homogêneas e Aplicações',
     icon: 'y^{\\prime\\prime}',
     color: '#F7DC6F',
     unlocked: false,
@@ -40,7 +40,7 @@ export const modules: Module[] = [
   {
     slug: 'laplace',
     title: 'Transformada de Laplace',
-    description: 'Propriedades, inversa, frações parciais',
+    description: 'Conceitos, Soluções de PVI, Função Degrau, Impulso de Dirac e Convolução',
     icon: '\\mathcal{L}\\{f(t)\\}',
     color: '#BB8FCE',
     unlocked: false,
@@ -49,7 +49,7 @@ export const modules: Module[] = [
   {
     slug: 'ode-systems',
     title: 'Sistemas de EDOs',
-    description: 'Autovalores, autovetores, resolução',
+    description: 'Matrizes, Matriz Fundamental, Autovalores, Autovetores e Variação dos Parâmetros',
     icon: '\\mathbf{X}^{\\prime} = A\\mathbf{X}',
     color: '#F1948A',
     unlocked: false,
@@ -57,8 +57,8 @@ export const modules: Module[] = [
   },
   {
     slug: 'power-series-method',
-    title: 'Método de Séries de Potências',
-    description: 'Resolução de EDOs por séries',
+    title: 'Soluções em Séries para EDO',
+    description: 'Ponto Ordinário, Equação de Cauchy-Euler e Método de Frobenius',
     icon: '\\sum c_n x^n',
     color: '#82E0AA',
     unlocked: false,
