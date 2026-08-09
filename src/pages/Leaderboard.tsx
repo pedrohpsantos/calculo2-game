@@ -39,7 +39,7 @@ export function Leaderboard() {
   }, [])
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4 max-w-3xl mx-auto flex flex-col relative">
+    <div className="min-h-screen pt-32 pb-12 px-4 max-w-3xl mx-auto flex flex-col relative">
 
 
       <div className="text-center mb-12">

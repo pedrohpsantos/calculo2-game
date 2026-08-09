@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Trophy, Crown, Target, Zap, BookOpen, Footprints, Share2, ArrowLeft, Save, RefreshCw, Medal } from 'lucide-react'
+import { Trophy, Crown, Target, Zap, BookOpen, Footprints, Share2, Save, RefreshCw, Medal, LogOut } from 'lucide-react'
 import { useAuthStore } from '@/store/authStore'
 import { useProgressStore } from '@/store/progressStore'
 import { ACHIEVEMENTS, getUnlockedAchievements } from '@/utils/achievements'
@@ -76,11 +76,21 @@ export function Profile() {
       <div className="max-w-4xl mx-auto space-y-8">
         
         {/* Header */}
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" onClick={() => navigate('/')} className="px-2">
-            <ArrowLeft className="w-6 h-6" />
-          </Button>
+        <div className="flex items-center justify-between">
           <h1 className="text-3xl font-pixel text-yellow-400">Meu Perfil</h1>
+          {!isAnonymous && (
+            <Button 
+              variant="outline" 
+              onClick={async () => {
+                await useAuthStore.getState().logout()
+                navigate('/')
+              }}
+              className="gap-2 border-red-500/50 text-red-400 hover:bg-red-500/10 hover:text-red-300"
+            >
+              <LogOut className="w-4 h-4" />
+              Sair da Conta
+            </Button>
+          )}
         </div>
 
         {/* Profile Card */}
