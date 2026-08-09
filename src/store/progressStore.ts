@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 import { supabase } from '@/lib/supabase'
 
 export interface UserProgress {
@@ -20,10 +21,13 @@ interface ProgressState {
   getProgress: (slug: string) => UserProgress | undefined
 }
 
-export const useProgressStore = create<ProgressState>()((set, get) => ({
-  progress: {},
+export const useProgressStore = create<ProgressState>()(
+  persist(
+    (set, get) => ({
+      progress: {},
   isLoading: false,
   fetchProgress: async (userId: string) => {
+    if (!userId) return; // Se não tem usuário logado, apenas usa o local state
     try {
       set({ isLoading: true })
       const { data, error } = await supabase
@@ -65,6 +69,8 @@ export const useProgressStore = create<ProgressState>()((set, get) => ({
     }))
     
     // Sync with Supabase using upsert
+    if (!userId) return; // Não sincroniza se não estiver logado
+
     try {
       const current = get().progress[slug]
       const { error } = await supabase
@@ -85,4 +91,10 @@ export const useProgressStore = create<ProgressState>()((set, get) => ({
     }
   },
   getProgress: (slug) => get().progress[slug],
-}))
+    }),
+    {
+      name: 'calc2-progress',
+      partialize: (state) => ({ progress: state.progress }),
+    }
+  )
+)

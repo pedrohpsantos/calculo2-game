@@ -2,8 +2,8 @@ import type { Challenge } from "@/types/challenge";
 
 export const challenge: Challenge = {
   id: "series-challenge",
-  title: "Infinite Series Matching Challenge",
-  instruction: "Match the series test or property to its defining condition.",
+  title: "Desafio de Séries Infinitas",
+  instruction: "Associe o teste de convergência ou propriedade à sua condição.",
   pairs: [
     { id: "pair-1", dropzoneLatex: "\\lim_{n \\to \\infty} a_n \\neq 0", draggableText: "Divergence Test" },
     { id: "pair-2", dropzoneLatex: "\\sum_{n=1}^{\\infty} a r^{n-1}, \\quad |r| < 1", draggableText: "Geometric Series (Convergent)" },

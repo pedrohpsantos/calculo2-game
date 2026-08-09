@@ -24,7 +24,7 @@ export function ModuleHub() {
     { key: 'theory', label: 'Teoria', icon: BookOpen, path: 'theory', always: true },
     { key: 'quiz', label: 'Quiz', icon: Gamepad2, path: 'quiz', always: true },
     { key: 'flashcards', label: 'Flashcards', icon: Layers, path: 'flashcards', always: false },
-    { key: 'challenge', label: 'Desafio DnD', icon: GripVertical, path: 'challenge', always: false },
+    { key: 'challenge', label: 'Desafio Prático', icon: GripVertical, path: 'challenge', always: false },
   ]
 
   return (

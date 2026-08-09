@@ -2,8 +2,8 @@ import type { Challenge } from "@/types/challenge";
 
 export const challenge: Challenge = {
   id: "taylor-challenge",
-  title: "Maclaurin Series Matching Challenge",
-  instruction: "Match the function to its Maclaurin series expansion.",
+  title: "Desafio da Série de Maclaurin",
+  instruction: "Associe a função à sua expansão em Série de Maclaurin.",
   pairs: [
     { id: "pair-1", dropzoneLatex: "e^x", draggableText: "\\sum_{n=0}^{\\infty} \\frac{x^n}{n!}" },
     { id: "pair-2", dropzoneLatex: "\\sin x", draggableText: "\\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n+1}}{(2n+1)!}" },
