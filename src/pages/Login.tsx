@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { User, LogOut, ArrowRight, Loader2, UserCircle, ArrowLeft } from 'lucide-react'
+import { UserCircle, ArrowLeft } from 'lucide-react'
 import { useAuthStore } from '@/store/authStore'
 
 export function Login() {
