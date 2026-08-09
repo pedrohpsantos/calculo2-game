@@ -160,7 +160,12 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
         .single()
         
       if (error) throw error
-      set({ user: { ...currentUser, ...data } })
+      set({ user: { 
+        ...currentUser, 
+        ...data,
+        total_score: data.total_score ?? currentUser.total_score,
+        level: data.level ?? currentUser.level
+      } })
     } catch (error) {
       console.error('Error updating profile:', error)
       throw error
