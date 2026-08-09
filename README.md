@@ -38,14 +38,7 @@ cd edo-game
 npm install
 ```
 
-### 3. Variáveis de Ambiente
-Crie um arquivo `.env` na raiz do projeto com as suas credenciais do Supabase (fornecidas pela API de configurações do projeto):
-```env
-VITE_SUPABASE_URL=sua_url_aqui
-VITE_SUPABASE_ANON_KEY=sua_key_aqui
-```
-
-### 4. Executando
+### 3. Executando
 Para iniciar o servidor de desenvolvimento:
 ```bash
 npm run dev
