@@ -22,7 +22,7 @@ interface AuthState {
   updateProfile: (updates: Partial<UserProfile>) => Promise<void>
 }
 
-export const useAuthStore = create<AuthState>()((set) => ({
+export const useAuthStore = create<AuthState>()((set, get) => ({
   user: null,
   isAnonymous: true,
   isLoading: true,

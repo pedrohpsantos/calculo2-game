@@ -1,4 +1,4 @@
-import { UserProgress } from '../store/progressStore'
+import type { UserProgress } from '../store/progressStore'
 
 export interface Achievement {
   id: string

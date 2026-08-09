@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { UserCircle, Trophy, Crown, Target, Zap, BookOpen, Footprints, Share2, ArrowLeft, Save, RefreshCw, Medal } from 'lucide-react'
+import { Trophy, Crown, Target, Zap, BookOpen, Footprints, Share2, ArrowLeft, Save, RefreshCw, Medal } from 'lucide-react'
 import { useAuthStore } from '@/store/authStore'
 import { useProgressStore } from '@/store/progressStore'
-import { ACHIEVEMENTS, getUnlockedAchievements, Achievement } from '@/utils/achievements'
+import { ACHIEVEMENTS, getUnlockedAchievements } from '@/utils/achievements'
+import type { Achievement } from '@/utils/achievements'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 
