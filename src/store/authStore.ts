@@ -38,7 +38,11 @@ export const useAuthStore = create<AuthState>()((set) => ({
       if (!user) {
         // Create anonymous user
         const { data: authData, error: authError } = await supabase.auth.signInAnonymously()
-        if (authError) throw authError
+        if (authError) {
+          console.warn('Anonymous auth disabled or failed. Operating as guest.')
+          set({ user: null, isAnonymous: true })
+          return
+        }
         user = authData.user
       }
 
@@ -131,7 +135,7 @@ export const useAuthStore = create<AuthState>()((set) => ({
     try {
       set({ isLoading: true })
       await supabase.auth.signOut()
-      set({ user: null })
+      set({ user: null, isAnonymous: true })
       // Re-initialize to get a new anonymous user immediately
       await useAuthStore.getState().initializeAuth()
     } catch (error) {
