@@ -9,7 +9,7 @@ describe('getUnlockedAchievements', () => {
         module_slug: 'ode-first-order',
         quiz_score: 100,
         quiz_completed: true
-      }
+      } as UserProgress
     }
     
     const unlocked = getUnlockedAchievements(progress)
@@ -22,7 +22,7 @@ describe('getUnlockedAchievements', () => {
         module_slug: 'ode-first-order',
         quiz_score: 100,
         quiz_completed: true
-      }
+      } as UserProgress
     }
     
     const unlocked = getUnlockedAchievements(progress)
