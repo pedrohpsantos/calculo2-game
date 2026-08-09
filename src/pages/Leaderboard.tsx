@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Trophy, ArrowLeft, UserCircle, Medal } from 'lucide-react'
+import { Trophy, UserCircle, Medal } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import type { UserProfile } from '@/store/authStore'
 import { useAuthStore } from '@/store/authStore'
 
 export function Leaderboard() {
-  const navigate = useNavigate()
   const { user } = useAuthStore()
   const [leaders, setLeaders] = useState<UserProfile[]>([])
   const [isLoading, setIsLoading] = useState(true)
