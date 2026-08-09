@@ -187,40 +187,41 @@ export function QuizActivity() {
                 )}
               </div>
             ) : (
-              <>
-                {question.latex && (
-                  <div className="mt-2 flex justify-center w-full">
-                    <div 
-                      className="px-6 py-8 bg-black/40 rounded-2xl text-lg md:text-xl shadow-inner border overflow-x-auto max-w-full"
-                      style={{ borderColor: `${mod.color}30` }}
-                    >
-                      <MathRenderer expression={question.latex} />
-                    </div>
+              question.latex && (
+                <div className="mt-2 flex justify-center w-full">
+                  <div 
+                    className="px-6 py-8 bg-black/40 rounded-2xl text-lg md:text-xl shadow-inner border overflow-x-auto max-w-full"
+                    style={{ borderColor: `${mod.color}30` }}
+                  >
+                    <MathRenderer expression={question.latex} />
                   </div>
-                )}
-                
-                <DndContext onDragEnd={handleDragEnd}>
-                  <div className="mt-2 mb-12 flex justify-center">
-                    <Dropzone 
-                      id="dropzone" 
-                      isCorrect={isCorrect}
-                      droppedItem={droppedId ? question.answers.find(a => a.id === droppedId) : null}
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mt-auto">
-                    {question.answers.map(answer => (
-                      <DraggableCard 
-                        key={answer.id} 
-                        id={answer.id} 
-                        text={answer.text} 
-                        disabled={droppedId === answer.id || isCorrect === true}
-                      />
-                    ))}
-                  </div>
-                </DndContext>
-              </>
+                </div>
+              )
             )}
+          </div>
+
+          {question.mode !== 'complete' && (
+            <DndContext onDragEnd={handleDragEnd}>
+              <div className="mt-2 mb-12 flex justify-center">
+                <Dropzone 
+                  id="dropzone" 
+                  isCorrect={isCorrect}
+                  droppedItem={droppedId ? question.answers.find(a => a.id === droppedId) : null}
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mt-auto">
+                {question.answers.map(answer => (
+                  <DraggableCard 
+                    key={answer.id} 
+                    id={answer.id} 
+                    text={answer.text} 
+                    disabled={droppedId === answer.id || isCorrect === true}
+                  />
+                ))}
+              </div>
+            </DndContext>
+          )}
 
           {/* Next Button */}
           <AnimatePresence>
