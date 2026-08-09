@@ -1,1 +1,3 @@
-providers = ["node"]
+[build]
+dir = "backend"
+
