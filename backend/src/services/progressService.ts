@@ -3,7 +3,7 @@ export interface Answer {
   selectedAnswerId: string;
 }
 
-export function validateProgress(moduleSlug: string, score: number, answers: Answer[]) {
+export function validateProgress(moduleSlug: string, score: number, _answers: Answer[]) {
   // Simple logic to simulate backend validation
   // In a real scenario, this would fetch the correct answers from DB and calculate the score
   
