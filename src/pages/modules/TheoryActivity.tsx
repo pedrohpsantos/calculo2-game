@@ -12,6 +12,7 @@ import { odeHigherOrderTheory } from '@/data/ode-higher-order/theory'
 import { odeSystemsTheory } from '@/data/ode-systems/theory'
 import { modules } from '@/data/modules'
 import type { TheorySlide } from '@/types/theory'
+import { Button } from '@/components/ui/Button'
 
 const getTheoryBySlug = (slug?: string): TheorySlide[] | null => {
   switch (slug) {
@@ -39,7 +40,7 @@ export function TheoryActivity() {
     return (
       <div className="min-h-screen pt-24 px-4 flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-display text-text-muted mb-6">Teoria em construção! 🚧</h2>
-        <button onClick={() => navigate(-1)} className="text-primary hover:underline">Voltar</button>
+        <Button onClick={() => navigate(-1)} variant="ghost" size="md">Voltar</Button>
       </div>
     )
   }
@@ -65,13 +66,16 @@ export function TheoryActivity() {
     <div className="min-h-screen pt-8 pb-12 px-4 max-w-4xl mx-auto flex flex-col">
       {/* Top Header com Botão Sair */}
       <div className="flex items-center justify-between mb-8">
-        <button 
+        <Button 
+          variant="ghost"
+          size="icon"
+          is3D={false}
           onClick={() => navigate(`/modules/${moduleSlug}`)}
-          className="p-3 bg-surface-light rounded-full text-text-muted hover:text-white hover:bg-white/10 transition-colors"
+          className="bg-surface-light text-text-muted hover:text-white"
           title="Sair da Teoria"
         >
           <X size={24} />
-        </button>
+        </Button>
         <span className="font-display text-sm md:text-base text-text-muted">
           Slide {currentIndex + 1} de {slides.length}
         </span>
@@ -141,27 +145,33 @@ export function TheoryActivity() {
 
       {/* Navigation Controls */}
       <div className="mt-12 flex justify-between items-center gap-4">
-        <button 
+        <Button 
           onClick={handlePrev}
           disabled={currentIndex === 0}
-          className="flex items-center gap-2 px-4 md:px-6 py-3 md:py-4 rounded-xl font-bold text-white transition-all disabled:opacity-20 hover:bg-white/10 active:scale-95"
+          variant="ghost"
+          size="lg"
+          is3D={false}
+          className="px-4 md:px-6 disabled:opacity-20 hover:bg-white/10"
         >
           <ChevronLeft size={24} />
-          <span className="hidden sm:inline">Anterior</span>
-        </button>
+          <span className="hidden sm:inline ml-2">Anterior</span>
+        </Button>
         
-        <button 
+        <Button 
           onClick={handleNext}
-          className="flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 text-surface font-display text-base md:text-lg rounded-xl hover:scale-105 active:scale-95 transition-all shadow-lg"
-          style={{ backgroundColor: mod.color, boxShadow: `0 4px 20px ${mod.color}60` }}
+          variant="primary"
+          size="lg"
+          is3D={true}
+          className="px-6 md:px-8"
+          style={{ backgroundColor: mod.color, boxShadow: `0 6px 0 ${mod.color}80, 0 15px 20px rgba(0,0,0,0.4)` }}
         >
           {currentIndex === slides.length - 1 ? 'Ir para o Quiz! 🚀' : (
-            <>
-              <span className="hidden sm:inline">Próximo</span>
+            <div className="flex items-center">
+              <span className="hidden sm:inline mr-2">Próximo</span>
               <ChevronRight size={24} />
-            </>
+            </div>
           )}
-        </button>
+        </Button>
       </div>
     </div>
   )

@@ -15,6 +15,8 @@ interface AuthState {
   isLoading: boolean
   setUser: (user: UserProfile | null) => void
   initializeAuth: () => Promise<void>
+  loginWithEmail: (email: string, pass: string) => Promise<void>
+  signUpWithEmail: (email: string, pass: string, name: string) => Promise<void>
   loginWithGoogle: () => Promise<void>
   logout: () => Promise<void>
 }
@@ -67,6 +69,46 @@ export const useAuthStore = create<AuthState>()((set) => ({
       }
     } catch (error) {
       console.error('Error initializing auth:', error)
+    } finally {
+      set({ isLoading: false })
+    }
+  },
+  loginWithEmail: async (email, password) => {
+    try {
+      set({ isLoading: true })
+      const { error } = await supabase.auth.signInWithPassword({ email, password })
+      if (error) throw error
+      await useAuthStore.getState().initializeAuth()
+    } catch (error) {
+      console.error('Email login error:', error)
+      throw error
+    } finally {
+      set({ isLoading: false })
+    }
+  },
+  signUpWithEmail: async (email, password, displayName) => {
+    try {
+      set({ isLoading: true })
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            display_name: displayName,
+          },
+        },
+      })
+      if (error) throw error
+      
+      // Se não precisa confirmar email, já inicializa
+      if (data.session) {
+        await useAuthStore.getState().initializeAuth()
+      } else {
+        alert('Cadastro realizado! Verifique seu email para confirmar.')
+      }
+    } catch (error) {
+      console.error('Email signup error:', error)
+      throw error
     } finally {
       set({ isLoading: false })
     }

@@ -15,6 +15,7 @@ import type { QuizQuestion } from '@/types/quiz'
 import { MathRenderer } from '@/components/game/MathRenderer'
 import { DraggableCard } from '@/components/game/DraggableCard'
 import { Dropzone } from '@/components/game/Dropzone'
+import { Button } from '@/components/ui/Button'
 import { useProgressStore } from '@/store/progressStore'
 import { useAuthStore } from '@/store/authStore'
 import { useSound } from '@/hooks/useSound'
@@ -52,7 +53,7 @@ export function QuizActivity() {
     return (
       <div className="min-h-screen pt-24 px-4 flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-display text-text-muted mb-6">Quiz em construção! 🚧</h2>
-        <button onClick={() => navigate(-1)} className="text-primary hover:underline">Voltar</button>
+        <Button onClick={() => navigate(-1)} variant="ghost" size="md">Voltar</Button>
       </div>
     )
   }
@@ -103,13 +104,16 @@ export function QuizActivity() {
     <div className="min-h-screen pt-8 pb-12 px-4 max-w-4xl mx-auto flex flex-col">
       {/* Top Header */}
       <div className="flex items-center justify-between mb-8">
-        <button 
+        <Button 
+          variant="ghost"
+          size="icon"
+          is3D={false}
           onClick={() => navigate(`/modules/${moduleSlug}`)}
-          className="p-3 bg-surface-light rounded-full text-text-muted hover:text-white hover:bg-white/10 transition-colors"
+          className="bg-surface-light text-text-muted hover:text-white"
           title="Sair do Quiz"
         >
           <X size={24} />
-        </button>
+        </Button>
         <span className="font-display text-sm md:text-base text-text-muted">
           Questão {currentIndex + 1} de {questions.length}
         </span>
@@ -234,13 +238,16 @@ export function QuizActivity() {
                 exit={{ opacity: 0, y: 20 }}
                 className="mt-12 text-center"
               >
-                <button 
+                <Button 
                   onClick={handleNext}
-                  className="px-8 py-4 text-white font-display text-lg md:text-xl rounded-xl hover:scale-105 active:scale-95 transition-all w-full md:w-auto"
-                  style={{ backgroundColor: mod.color, boxShadow: `0 4px 20px ${mod.color}60` }}
+                  variant="primary"
+                  size="lg"
+                  is3D={true}
+                  className="w-full md:w-auto"
+                  style={{ backgroundColor: mod.color, boxShadow: `0 6px 0 ${mod.color}80, 0 15px 20px rgba(0,0,0,0.4)` }}
                 >
                   {currentIndex === questions.length - 1 ? 'Finalizar Quiz 🏆' : 'Próxima Questão ➔'}
-                </button>
+                </Button>
               </motion.div>
             )}
           </AnimatePresence>

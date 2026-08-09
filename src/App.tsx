@@ -15,6 +15,7 @@ import { TheoryActivity } from '@/pages/modules/TheoryActivity'
 import { FlashcardActivity } from '@/pages/modules/FlashcardActivity'
 import { useAuthStore } from '@/store/authStore'
 import { useProgressStore } from '@/store/progressStore'
+import { EasterEggs } from '@/components/game/EasterEggs'
 
 export default function App() {
   const { initializeAuth, user } = useAuthStore()
@@ -33,6 +34,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Header />
+      <EasterEggs />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

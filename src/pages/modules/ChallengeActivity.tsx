@@ -10,6 +10,7 @@ import type { Challenge, ChallengePair } from '@/types/challenge'
 import { MathRenderer } from '@/components/game/MathRenderer'
 import { Dropzone } from '@/components/game/Dropzone'
 import { DraggableCard } from '@/components/game/DraggableCard'
+import { Button } from '@/components/ui/Button'
 import { useProgressStore } from '@/store/progressStore'
 import { useAuthStore } from '@/store/authStore'
 import { useSound } from '@/hooks/useSound'
@@ -250,18 +251,19 @@ export function ChallengeActivity() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                     >
-                      <button
+                      <Button
+                        variant={allFilled ? "primary" : "ghost"}
+                        size="lg"
+                        is3D={allFilled}
                         onClick={handleValidate}
                         disabled={!allFilled}
                         className={clsx(
-                          "w-full py-4 rounded-xl font-display text-lg flex items-center justify-center gap-2 transition-all",
-                          allFilled 
-                            ? "bg-primary text-surface hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(255,200,0,0.3)]"
-                            : "bg-surface-light/50 text-white/30 cursor-not-allowed"
+                          "w-full text-lg",
+                          !allFilled && "bg-surface-light/50 text-white/30 border-white/5 cursor-not-allowed"
                         )}
                       >
                         Verificar Respostas
-                      </button>
+                      </Button>
                     </motion.div>
                   ) : (
                     <motion.div 
@@ -275,24 +277,29 @@ export function ChallengeActivity() {
                           <CheckCircle className="w-12 h-12 text-green-400 mx-auto mb-3" />
                           <h3 className="text-xl font-display text-white mb-2">Desafio Concluído!</h3>
                           <p className="text-green-300 font-body mb-6">+300 XP ganhos!</p>
-                          <button
+                          <Button
+                            variant="primary"
+                            size="md"
+                            is3D={true}
                             onClick={() => navigate('/')}
-                            className="px-8 py-3 bg-green-500 hover:bg-green-400 text-white rounded-xl font-display transition-colors"
+                            className="bg-green-500 hover:bg-green-400 border-green-600 text-white"
                           >
                             Voltar ao Mapa
-                          </button>
+                          </Button>
                         </div>
                       ) : (
                         <div className="text-center p-6 rounded-2xl bg-red-500/20 border border-red-500/50">
                           <RotateCcw className="w-12 h-12 text-red-400 mx-auto mb-3" />
                           <h3 className="text-xl font-display text-white mb-2">Alguns estão errados!</h3>
                           <p className="text-red-300 font-body mb-6">Revise as lacunas que ficaram vermelhas e tente novamente.</p>
-                          <button
+                          <Button
+                            variant="ghost"
+                            size="md"
                             onClick={resetChallenge}
-                            className="w-full py-4 bg-white/10 hover:bg-white/20 text-white rounded-xl font-display transition-colors"
+                            className="w-full bg-white/10 hover:bg-white/20"
                           >
                             Tentar Novamente
-                          </button>
+                          </Button>
                         </div>
                       )}
                     </motion.div>
