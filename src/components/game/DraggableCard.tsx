@@ -16,6 +16,7 @@ export function DraggableCard({ id, text, disabled }: DraggableCardProps) {
 
   const style = {
     transform: CSS.Translate.toString(transform),
+    touchAction: 'none' as const,
   }
 
   return (
@@ -25,7 +26,7 @@ export function DraggableCard({ id, text, disabled }: DraggableCardProps) {
       {...listeners}
       {...attributes}
       className={clsx(
-        "px-6 py-4 rounded-xl border border-white/10 font-body font-bold text-lg cursor-grab active:cursor-grabbing transition-colors select-none",
+        "px-4 py-3 md:px-6 md:py-4 rounded-xl border border-white/10 font-body font-bold text-base md:text-lg cursor-grab active:cursor-grabbing transition-colors select-none",
         isDragging ? "bg-primary text-surface z-50 shadow-[0_10px_30px_rgba(255,200,0,0.5)] border-primary" : "glass-card hover:bg-white/10 text-white",
         disabled && "opacity-50 cursor-not-allowed hover:bg-transparent"
       )}
