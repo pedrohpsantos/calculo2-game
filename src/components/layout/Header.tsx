@@ -13,7 +13,7 @@ export function Header() {
   const [titleClicks, setTitleClicks] = useState(0)
   const [avatarClicks, setAvatarClicks] = useState(0)
 
-  const handleTitleClick = (e: React.MouseEvent) => {
+  const handleTitleClick = () => {
     const newClicks = titleClicks + 1
     setTitleClicks(newClicks)
     if (newClicks >= 5) {
@@ -23,7 +23,7 @@ export function Header() {
     setTimeout(() => setTitleClicks(0), 2000)
   }
 
-  const handleAvatarClick = (e: React.MouseEvent) => {
+  const handleAvatarClick = () => {
     const newClicks = avatarClicks + 1
     setAvatarClicks(newClicks)
     if (newClicks >= 5) {

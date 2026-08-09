@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+
 import { motion } from 'framer-motion'
-import { UserCircle, ArrowLeft } from 'lucide-react'
+import { UserCircle } from 'lucide-react'
 import { useAuthStore } from '@/store/authStore'
 import { logger } from '@/utils/logger'
 
 export function Login() {
-  const navigate = useNavigate()
   const { user, isAnonymous, loginWithGoogle, loginWithEmail, signUpWithEmail, logout, isLoading } = useAuthStore()
   
   const [isRegistering, setIsRegistering] = useState(false)
