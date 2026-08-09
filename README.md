@@ -1,70 +1,134 @@
 # EDO Game: A Jornada do Cálculo 2 🎮✖️
 
-Bem-vindo ao **EDO Game**, uma plataforma interativa e gamificada focada no ensino de Cálculo 2, cobrindo o edital de Equações Diferenciais Ordinárias (EDOs) e Séries, no mesmo rigor do livro de James Stewart.
+![GitHub repo size](https://img.shields.io/github/repo-size/pedrohpsantos/calculos2-game)
+![GitHub Action](https://img.shields.io/github/actions/workflow/status/pedrohpsantos/calculos2-game/ci.yml?branch=main)
+![React](https://img.shields.io/badge/React-18-blue)
+![Express](https://img.shields.io/badge/Express-Backend-green)
 
-## 🌟 O que é o projeto?
+Bem-vindo ao **EDO Game**, uma plataforma interativa e gamificada focada no ensino de **Cálculo 2**, cobrindo todo o edital de Equações Diferenciais Ordinárias (EDOs) e Séries, com o mesmo rigor acadêmico do aclamado livro de James Stewart.
 
-O objetivo deste projeto é eliminar a ansiedade e a sobrecarga cognitiva no aprendizado do Cálculo 2. Transformamos a ementa clássica em um "Roadmap" estilo videogame, onde o aluno precisa desbloquear fases consumindo pílulas curtas de teoria e resolvendo desafios interativos baseados em *Drag and Drop*.
+---
 
-### 📚 Módulos Abordados (Nível Stewart)
+## 🌟 O Projeto
+
+O objetivo deste projeto é eliminar a ansiedade e a sobrecarga cognitiva no aprendizado de matemática avançada. Transformamos a ementa clássica em um **Roadmap estilo videogame**, onde o aluno precisa desbloquear fases consumindo pílulas curtas de teoria e resolvendo desafios interativos focados no visual e na intuição.
+
+### 📚 Módulos Abordados (Nível Universitário)
 1. **Sequências e Séries:** Teste da Integral, Razão, Raiz, Séries Alternadas e Convergência Condicional.
-2. **Séries de Taylor:** O Problema do Seno, Séries de Maclaurin e Resto de Lagrange.
-3. **EDO de 1ª Ordem:** Separáveis, Fator Integrante, Exatas e Substituição Homogênea.
-4. **EDO de 2ª Ordem e Ordem Superior:** Equações Homogêneas, Wronskiano, Teorema de Abel e Variação dos Parâmetros.
-5. **Soluções em Séries para EDOs:** Pontos Ordinários/Singulares, Equação de Cauchy-Euler e Método de Frobenius.
+2. **Séries de Taylor:** Séries de Maclaurin, Resto de Lagrange.
+3. **EDO de 1ª Ordem:** Separáveis, Fator Integrante, Exatas e Substituição.
+4. **EDO de 2ª Ordem e Superior:** Homogêneas, Wronskiano, Teorema de Abel, Variação dos Parâmetros.
+5. **Soluções em Séries para EDOs:** Pontos Ordinários/Singulares, Equação de Cauchy-Euler, Método de Frobenius.
 6. **Transformada de Laplace:** Função Degrau de Heaviside, Impulso de Dirac e Convolução.
-7. **Sistemas de EDOs:** Modelagem de Matrizes, Matriz Fundamental e Autovalores/Autovetores.
+7. **Sistemas de EDOs:** Modelagem de Matrizes, Matriz Fundamental, Autovalores e Autovetores.
+
+---
+
+## 🏗️ Arquitetura Monorepo
+
+O repositório é projetado seguindo as melhores práticas empresariais, dividindo responsabilidades através de um **Monorepo**:
+
+- 🖥️ **`frontend/`**: SPA construído em React + Vite. Focado na renderização otimizada, gerenciamento de estado isolado e design visual (*Glassmorphism*).
+- ⚙️ **`backend/`**: API segura desenvolvida em Node.js com Express e TypeScript. É a camada responsável por processar a lógica do jogo (avaliação de respostas, liberação de módulos e medalhas), bloqueando tentativas de fraude (*cheats*) pelo lado do cliente.
+- ☁️ **Supabase**: Backend-as-a-Service utilizado para gerenciar a autenticação de usuários (OAuth/Email) e armazenamento em banco de dados PostgreSQL.
+
+---
 
 ## 🛠️ Tecnologias Utilizadas
 
-Este projeto foi construído do zero focando em performance, legibilidade e Design Visual Moderno:
-- **[React](https://react.dev/) + [Vite](https://vitejs.dev/):** O motor de renderização rápido e responsivo.
-- **[Tailwind CSS](https://tailwindcss.com/):** Estilização utilitária focada em *Glassmorphism* e temas dinâmicos por módulo.
-- **[Framer Motion](https://www.framer.com/motion/):** Animações suaves de transição de telas e barras de progresso.
-- **[dnd-kit](https://dndkit.com/):** Biblioteca leve para as interações de *Drag and Drop* no Quiz.
-- **[KaTeX](https://katex.org/):** Renderização nativa e otimizada de fórmulas matemáticas em alta resolução.
-- **[Supabase](https://supabase.com/):** Backend-as-a-Service para persistência, banco de dados (PostgreSQL) e Autenticação (OAuth Google e Email/Senha).
-- **[Zustand](https://github.com/pmndrs/zustand):** Gerenciamento de estados globais super eficiente.
+### Frontend
+- **[React](https://react.dev/) + [Vite](https://vitejs.dev/)**
+- **[Tailwind CSS](https://tailwindcss.com/)**: Estilização robusta e totalmente responsiva.
+- **[Zustand](https://github.com/pmndrs/zustand)**: Gerenciamento de estado global.
+- **[Framer Motion](https://www.framer.com/motion/)**: Animações fluidas e navegação contínua.
+- **[dnd-kit](https://dndkit.com/)**: Motor otimizado de *Drag and Drop*.
+- **[KaTeX](https://katex.org/)**: Renderização nativa de expressões matemáticas complexas.
 
-## 🚀 Como rodar localmente
+### Backend
+- **[Node.js](https://nodejs.org/) & [Express.js](https://expressjs.com/)**
+- **[TypeScript](https://www.typescriptlang.org/)**: Tipagem estática rigorosa em todos os ambientes.
+- **[Jest](https://jestjs.io/)**: Suite de testes unitários para a camada de serviços.
+- **[ESLint](https://eslint.org/)**: Análise de código e prevenção de anomalias sintáticas.
 
-### 1. Requisitos
-Você precisará do [Node.js](https://nodejs.org/) instalado em sua máquina.
+---
 
-### 2. Configurando o Ambiente
-Crie um arquivo `.env` na raiz do projeto com as chaves do seu projeto do Supabase:
-```env
-VITE_SUPABASE_URL=seu-supabase-url
-VITE_SUPABASE_ANON_KEY=sua-anon-key
-```
+## 🚀 Como Rodar Localmente
 
-### 3. Clonando e Instalando
-### 1. Frontend
+### 1. Pré-Requisitos
+- Ter o [Node.js](https://nodejs.org/) (versão 18+ recomendada) instalado.
+- Conta no [Supabase](https://supabase.com/) para obter as chaves de API.
+
+### 2. Clonando o Repositório
 ```bash
-cd frontend
-npm install
-npm run dev
+git clone https://github.com/pedrohpsantos/calculos2-game.git
+cd calculos2-game
 ```
 
-### 2. Backend
+### 3. Rodando o Backend (API)
+A API Node processa a validação do progresso do jogo.
 ```bash
 cd backend
 npm install
 npm run dev
 ```
+> O backend rodará por padrão em `http://localhost:3000`.
 
-### 3. Executando
-Para iniciar o servidor de desenvolvimento:
+### 4. Rodando o Frontend (Web App)
+Abra uma **nova janela de terminal**, configure as variáveis de ambiente e inicie o Vite.
+```bash
+cd frontend
+npm install
+```
+
+Crie o arquivo `.env.local` dentro da pasta `/frontend`:
+```env
+VITE_SUPABASE_URL=sua-url-do-supabase
+VITE_SUPABASE_ANON_KEY=sua-chave-anonima
+```
+
+Inicie o servidor de desenvolvimento:
 ```bash
 npm run dev
 ```
-O jogo estará rodando em `http://localhost:5173`.
-
-### 5. Easter Eggs 🥚
-Nós implementamos alguns segredos interativos para os estudantes mais curiosos:
-- Digite `tatiane` ou `laplace` no teclado- `frontend/`: Aplicativo React com Vite, TailwindCSS e Zustand.
-- `backend/`: API Express.js em TypeScript para validação da lógica do jogo.
-- `supabase/`: Back-end como serviço para Auth e persistência de dados.ir com a fórmula de Euler na página inicial!
+> O frontend rodará por padrão em `http://localhost:5173`.
 
 ---
-*Criado com dedicação e muito café. Foco nos estudos e divirta-se!* ☕🚀
+
+## 🧪 Testes e Validação de Qualidade
+
+Este projeto possui uma esteira rigorosa. Para rodar as checagens manualmente em sua máquina:
+
+**Testes e Lint no Frontend:**
+```bash
+cd frontend
+npm run lint
+npm run test
+```
+
+**Testes e Lint no Backend:**
+```bash
+cd backend
+npm run lint
+npm run test
+```
+
+---
+
+## ⚙️ CI/CD (Integração Contínua)
+Qualquer novo commit direcionado à branch `main` passa por um pipeline automático no **GitHub Actions** que orquestra a validação dupla:
+- `lint`, `build` e `test` na raiz do `/frontend`.
+- `lint`, `build` e `test` na raiz do `/backend`.
+
+Se qualquer teste ou verificação falhar, o build do Vercel é automaticamente suspenso para preservar a saúde do ambiente de produção.
+
+---
+
+## 🤫 Easter Eggs
+
+Para quem explora cada canto, o EDO Game possui algumas surpresas:
+- Toque rápido e repetido (5x) no título da tela (`Cálculo 2`) ativará a comemoração *Tatiane*.
+- Toque rápido (5x) na sua foto de avatar ativará a mágica do *Laplace*.
+- No computador, as palavras-chave `tatiane` ou `laplace` digitadas soltas pelo teclado ativam o efeito clássico.
+
+---
+*Foco nos estudos e divirta-se!* ☕🚀
