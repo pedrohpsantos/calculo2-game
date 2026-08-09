@@ -8,8 +8,7 @@ describe('getUnlockedAchievements', () => {
       'ode-first-order': {
         module_slug: 'ode-first-order',
         quiz_score: 100,
-        quiz_completed: true,
-        theory_completed: true
+        quiz_completed: true
       }
     }
     
@@ -22,8 +21,7 @@ describe('getUnlockedAchievements', () => {
       'ode-first-order': {
         module_slug: 'ode-first-order',
         quiz_score: 100,
-        quiz_completed: true,
-        theory_completed: true
+        quiz_completed: true
       }
     }
     
