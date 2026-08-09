@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { DndContext, DragOverlay, closestCenter } from '@dnd-kit/core'
+import { DndContext, DragOverlay, closestCenter, useSensor, useSensors, PointerSensor, TouchSensor } from '@dnd-kit/core'
 import type { DragEndEvent } from '@dnd-kit/core'
 import { X, CheckCircle, RotateCcw } from 'lucide-react'
 import { clsx } from 'clsx'
@@ -53,6 +53,11 @@ export function ChallengeActivity() {
   const [activeDragItem, setActiveDragItem] = useState<ChallengePair | null>(null)
   const [hasValidated, setHasValidated] = useState(false)
   const [shuffledCards, setShuffledCards] = useState<ChallengePair[]>([])
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 250, tolerance: 5 } })
+  )
 
   const updateProgress = useProgressStore(s => s.updateProgress)
   const getProgress = useProgressStore(s => s.getProgress)
@@ -186,6 +191,7 @@ export function ChallengeActivity() {
 
         {/* DND Layout */}
         <DndContext 
+          sensors={sensors}
           collisionDetection={closestCenter}
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
@@ -217,7 +223,7 @@ export function ChallengeActivity() {
 
             {/* Right Column: Draggable Cards & Validation */}
             <div className="flex flex-col bg-surface-light/10 border border-white/10 rounded-3xl p-6 md:p-8">
-              <h3 className="text-white font-display text-xl mb-6 flex items-center gap-2">
+              <h3 className="text-white font-bold text-xl mb-6 flex items-center gap-2">
                 Opções
                 <span className="text-xs bg-white/10 px-2 py-1 rounded-full text-white/70">
                   Arraste para as lacunas

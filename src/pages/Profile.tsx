@@ -81,6 +81,8 @@ export function Profile() {
           {!isAnonymous && (
             <Button 
               variant="danger" 
+              size="sm"
+              is3D={false}
               onClick={async () => {
                 await useAuthStore.getState().logout()
                 navigate('/')
@@ -108,7 +110,7 @@ export function Profile() {
               </button>
             </div>
             {!isAnonymous && (
-               <Button onClick={handleRandomAvatar} variant="secondary" className="text-xs py-1 px-3">
+               <Button onClick={handleRandomAvatar} variant="secondary" size="sm" is3D={false} className="text-xs">
                  Trocar Avatar
                </Button>
             )}
@@ -123,10 +125,10 @@ export function Profile() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   disabled={isAnonymous}
-                  className="flex-1 bg-brand-900 border border-brand-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-brand-500 disabled:opacity-50"
+                  className="flex-1 bg-brand-900 border border-brand-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-brand-500 disabled:opacity-50 min-w-0"
                 />
                 {!isAnonymous && (
-                  <Button onClick={handleSave} disabled={isSaving} className="gap-2">
+                  <Button onClick={handleSave} disabled={isSaving} size="sm" is3D={false} className="gap-2 shrink-0">
                     <Save className="w-4 h-4" />
                     {isSaving ? 'Salvando...' : 'Salvar'}
                   </Button>

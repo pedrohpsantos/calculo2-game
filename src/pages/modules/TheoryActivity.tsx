@@ -106,7 +106,7 @@ export function TheoryActivity() {
           >
             {/* Themed Title with text-wrap: balance */}
             <h2 
-              className="text-xl md:text-2xl font-display mb-8 tracking-wide leading-relaxed [text-wrap:balance]"
+              className="text-xl md:text-2xl font-bold mb-8 tracking-wide leading-relaxed [text-wrap:balance]"
               style={{ color: mod.color }}
             >
               {slide.title}

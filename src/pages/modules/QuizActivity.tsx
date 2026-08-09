@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { DndContext, type DragEndEvent } from '@dnd-kit/core'
+import { DndContext, useSensor, useSensors, PointerSensor, TouchSensor, type DragEndEvent } from '@dnd-kit/core'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import { odeFirstOrderQuestions } from '@/data/ode-first-order/quiz-questions'
@@ -45,6 +45,11 @@ export function QuizActivity() {
   const [droppedId, setDroppedId] = useState<string | null>(null)
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
   const [score, setScore] = useState(0)
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 250, tolerance: 5 } })
+  )
 
   const questions = getQuestionsBySlug(moduleSlug)
   const mod = modules.find(m => m.slug === moduleSlug)
@@ -150,12 +155,12 @@ export function QuizActivity() {
             >
               {question.category}
             </span>
-            <h2 className="text-xl md:text-2xl font-display text-white mb-6 leading-relaxed [text-wrap:balance]">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6 leading-relaxed [text-wrap:balance]">
               {question.question}
             </h2>
             
             {question.mode === 'complete' ? (
-                <DndContext onDragEnd={handleDragEnd}>
+                <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
                   <div className="flex flex-col items-center w-full">
                     {/* The formula block */}
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4 bg-black/40 p-6 rounded-2xl border w-full max-w-2xl mx-auto" style={{ borderColor: `${mod.color}30` }}>
@@ -207,7 +212,7 @@ export function QuizActivity() {
           </div>
 
           {question.mode !== 'complete' && (
-            <DndContext onDragEnd={handleDragEnd}>
+            <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
               <div className="mt-2 mb-12 flex justify-center">
                 <Dropzone 
                   id="dropzone" 

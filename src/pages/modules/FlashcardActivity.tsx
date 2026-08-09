@@ -147,7 +147,7 @@ export function FlashcardActivity() {
                   </span>
                 </div>
                 <div className="flex-1 flex flex-col items-center justify-center text-center">
-                  <h3 className="text-2xl text-white font-display leading-relaxed [text-wrap:balance]">
+                  <h3 className="text-2xl text-white font-bold leading-relaxed [text-wrap:balance]">
                     {flashcards[currentIndex].front}
                   </h3>
                   {flashcards[currentIndex].frontLatex && (
@@ -167,7 +167,7 @@ export function FlashcardActivity() {
                 style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
               >
                 <div className="flex-1 flex flex-col items-center justify-center text-center">
-                  <h3 className="text-2xl text-gray-900 font-display leading-relaxed [text-wrap:balance]">
+                  <h3 className="text-2xl text-gray-900 font-bold leading-relaxed [text-wrap:balance]">
                     {flashcards[currentIndex].back}
                   </h3>
                   {flashcards[currentIndex].backLatex && (
