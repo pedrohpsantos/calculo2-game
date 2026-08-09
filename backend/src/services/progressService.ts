@@ -3,26 +3,38 @@ export interface Answer {
   selectedAnswerId: string;
 }
 
-export function validateProgress(moduleSlug: string, score: number, _answers: Answer[]) {
-  // Simple logic to simulate backend validation
-  // In a real scenario, this would fetch the correct answers from DB and calculate the score
+export interface ProgressPayload {
+  quiz_score?: number;
+  quiz_completed?: boolean;
+  flashcards_completed?: boolean;
+  challenge_completed?: boolean;
+  last_played_at?: string;
+}
+
+export function validateProgress(moduleSlug: string, progress: ProgressPayload, _answers?: Answer[]) {
+  // Logic to validate the incoming progress
   
-  if (score < 0 || score > 100) {
-    throw new Error('Invalid score range');
+  if (progress.quiz_score !== undefined) {
+    if (progress.quiz_score < 0 || progress.quiz_score > 100) {
+      throw new Error('Invalid score range');
+    }
   }
 
-  // Assuming passing score is 70
-  const passed = score >= 70;
+  const passed = (progress.quiz_score ?? 0) >= 70;
   const badgesEarned: string[] = [];
 
-  if (score === 100) {
+  if (progress.quiz_score === 100) {
     badgesEarned.push(`${moduleSlug}_perfect`);
+  }
+  
+  if (progress.flashcards_completed) {
+    badgesEarned.push(`${moduleSlug}_flashcards`);
   }
 
   return {
     isValid: true,
     passed,
     badgesEarned,
-    validatedScore: score
+    validatedProgress: progress
   };
 }

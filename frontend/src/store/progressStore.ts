@@ -80,19 +80,30 @@ export const useProgressStore = create<ProgressState>()(
 
     try {
       const current = get().progress[slug]
-      const { error } = await supabase
-        .from('user_progress')
-        .upsert({
-          user_id: userId,
-          module_slug: slug,
-          quiz_score: current.quiz_score,
-          quiz_completed: current.quiz_completed,
-          flashcards_completed: current.flashcards_completed,
-          challenge_completed: current.challenge_completed,
-          last_played_at: current.last_played_at
-        }, { onConflict: 'user_id,module_slug' })
-        
-      if (error) throw error
+      
+      const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'
+      const response = await fetch(`${API_URL}/api/progress`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: userId,
+          moduleSlug: slug,
+          progress: {
+            quiz_score: current.quiz_score,
+            quiz_completed: current.quiz_completed,
+            flashcards_completed: current.flashcards_completed,
+            challenge_completed: current.challenge_completed,
+            last_played_at: current.last_played_at
+          }
+        }),
+      })
+
+      if (!response.ok) {
+        const err = await response.json()
+        throw new Error(err.error || 'Failed to sync progress with backend')
+      }
     } catch (error) {
       logger.error('Error syncing progress:', error)
     }
