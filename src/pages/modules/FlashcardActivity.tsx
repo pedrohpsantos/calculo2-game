@@ -93,7 +93,7 @@ export function FlashcardActivity() {
   }
 
   return (
-    <div className="min-h-screen pt-8 pb-12 px-4 max-w-2xl mx-auto flex flex-col">
+    <div className="min-h-screen pt-24 pb-12 px-4 max-w-2xl mx-auto flex flex-col">
       <div className="flex items-center justify-between mb-8">
         <button 
           onClick={() => navigate(`/modules/${moduleSlug}`)}
@@ -142,7 +142,7 @@ export function FlashcardActivity() {
             >
               {/* Front */}
               <div 
-                className="absolute inset-0 bg-surface-light border border-white/10 rounded-3xl p-8 flex flex-col shadow-2xl"
+                className="absolute inset-0 bg-surface-light border border-white/10 rounded-3xl p-5 md:p-8 flex flex-col shadow-2xl"
                 style={{ backfaceVisibility: 'hidden' }}
               >
                 <div className="text-center mb-auto">
@@ -167,7 +167,7 @@ export function FlashcardActivity() {
 
               {/* Back */}
               <div 
-                className="absolute inset-0 bg-white rounded-3xl p-8 flex flex-col shadow-2xl"
+                className="absolute inset-0 bg-white rounded-3xl p-5 md:p-8 flex flex-col shadow-2xl"
                 style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
               >
                 <div className="flex-1 flex flex-col items-center justify-center text-center w-full overflow-hidden">

@@ -46,17 +46,10 @@ export function Login() {
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none" />
 
-      <button 
-        onClick={() => navigate(-1)}
-        className="absolute top-8 left-8 p-3 bg-surface-light/50 hover:bg-surface-light rounded-full text-text-muted hover:text-white transition-all backdrop-blur-md border border-white/5"
-      >
-        <ArrowLeft size={24} />
-      </button>
-
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-md p-10 rounded-3xl border border-white/10 bg-surface-light/40 backdrop-blur-xl text-center shadow-2xl relative z-10"
+        className="w-full max-w-md p-6 md:p-10 rounded-3xl border border-white/10 bg-surface-light/40 backdrop-blur-xl text-center shadow-2xl relative z-10"
       >
         {isAnonymous ? (
           <>

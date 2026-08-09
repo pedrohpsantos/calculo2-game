@@ -10,9 +10,9 @@ export const flashcards: Flashcard[] = [
   {
     id: 'series-2',
     category: 'Série Geométrica',
-    front: 'Qual a condição para a convergência de uma Série Geométrica $\\sum_{n=0}^{\\infty} a r^n$?',
+    front: 'Qual a condição para a convergência de uma Série Geométrica?',
     frontLatex: '\\sum_{n=0}^{\\infty} a r^n',
-    back: 'A razão $r$ deve ter valor absoluto menor que 1 ($|r| < 1$).'
+    back: 'A razão deve ter valor absoluto menor que 1.'
   },
   {
     id: 'series-3',
@@ -24,7 +24,7 @@ export const flashcards: Flashcard[] = [
   {
     id: 'series-4',
     category: 'Série Harmônica',
-    front: 'A Série Harmônica $\\sum_{n=1}^{\\infty} \\frac{1}{n}$ converge ou diverge?',
+    front: 'A Série Harmônica converge ou diverge?',
     frontLatex: '\\sum_{n=1}^{\\infty} \\frac{1}{n}',
     back: 'Diverge para o infinito, mesmo crescendo muito lentamente.'
   },
