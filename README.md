@@ -39,10 +39,18 @@ VITE_SUPABASE_ANON_KEY=sua-anon-key
 ```
 
 ### 3. Clonando e Instalando
+### 1. Frontend
 ```bash
-git clone https://github.com/pedrohpsantos/edo-game.git
-cd edo-game
+cd frontend
 npm install
+npm run dev
+```
+
+### 2. Backend
+```bash
+cd backend
+npm install
+npm run dev
 ```
 
 ### 3. Executando
@@ -54,8 +62,9 @@ O jogo estará rodando em `http://localhost:5173`.
 
 ### 5. Easter Eggs 🥚
 Nós implementamos alguns segredos interativos para os estudantes mais curiosos:
-- Digite `tatiane` ou `laplace` no teclado em qualquer lugar do jogo.
-- Tente encontrar e interagir com a fórmula de Euler na página inicial!
+- Digite `tatiane` ou `laplace` no teclado- `frontend/`: Aplicativo React com Vite, TailwindCSS e Zustand.
+- `backend/`: API Express.js em TypeScript para validação da lógica do jogo.
+- `supabase/`: Back-end como serviço para Auth e persistência de dados.ir com a fórmula de Euler na página inicial!
 
 ---
 *Criado com dedicação e muito café. Foco nos estudos e divirta-se!* ☕🚀

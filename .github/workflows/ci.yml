@@ -17,9 +17,10 @@ jobs:
       with:
         node-version: '20.x'
         cache: 'npm'
-    - run: npm ci
+        cache-dependency-path: frontend/package-lock.json
+    - run: cd frontend && npm ci
     - name: Lint Frontend
-      run: npm run lint
+      run: cd frontend && npm run lint
 
   build-frontend:
     needs: lint-frontend
@@ -31,9 +32,10 @@ jobs:
       with:
         node-version: '20.x'
         cache: 'npm'
-    - run: npm ci
+        cache-dependency-path: frontend/package-lock.json
+    - run: cd frontend && npm ci
     - name: Build Frontend
-      run: npm run build
+      run: cd frontend && npm run build
       env:
         VITE_SUPABASE_URL: "https://mock.supabase.co"
         VITE_SUPABASE_ANON_KEY: "mock-key"
@@ -48,9 +50,10 @@ jobs:
       with:
         node-version: '20.x'
         cache: 'npm'
-    - run: npm ci
+        cache-dependency-path: frontend/package-lock.json
+    - run: cd frontend && npm ci
     - name: Test Frontend
-      run: npm run test
+      run: cd frontend && npm run test
 
   deploy-frontend:
     needs: test-frontend
@@ -59,30 +62,54 @@ jobs:
     - name: Deploy Frontend
       run: echo "Vercel automatically deploys the frontend upon push to main. Deploy verified."
 
-  # BACKEND PIPELINE (Mock/Supabase)
+  # BACKEND PIPELINE
   lint-backend:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        cache-dependency-path: backend/package-lock.json
+    - run: cd backend && npm install
     - name: Lint Backend
-      run: echo "Backend is managed via Supabase (BaaS). No local backend to lint."
+      run: cd backend && npm run lint
 
   build-backend:
     needs: lint-backend
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        cache-dependency-path: backend/package-lock.json
+    - run: cd backend && npm install
     - name: Build Backend
-      run: echo "Backend is managed via Supabase (BaaS). No local backend to build."
+      run: cd backend && npm run build
 
   test-backend:
     needs: build-backend
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        cache-dependency-path: backend/package-lock.json
+    - run: cd backend && npm install
     - name: Test Backend
-      run: echo "Backend is managed via Supabase (BaaS). Backend testing handled externally."
+      run: cd backend && npm run test
 
   deploy-backend:
     needs: test-backend
     runs-on: ubuntu-latest
     steps:
     - name: Deploy Backend
-      run: echo "Backend is managed via Supabase (BaaS). Deploy verified."
+      run: echo "Backend CI complete. Deploy handled externally."
