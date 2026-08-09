@@ -1,0 +1,12 @@
+{
+  "name": "calculo2-game-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}
