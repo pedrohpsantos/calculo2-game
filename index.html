@@ -1,52 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDO player</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-
-
-</head>
-<body>
-    <div class="edo">
-        <h1>EDO's <br> PLAYER</h1>
-        <p class="creditos">
-            <a href="/explicacao/creditos.html" >
-            Por Lucas e Pedro
-         </a>
-        </p>
-        
-        <div class="botoes">
-            
-            <a href="quiz/quiz.html" target="_self" class="btn">
-                <p>Vamos Jogar!</p>
-            </a>
-
-            <a href="explicacao/resfriamento.html" target="_self" class="btn">
-                <p>Vamos Aprender!</p>
-            </a>
-
-        </div>
-    </div>
-    
-    <div class="audioFundo">
-        <audio id="myAudio" autoplay>
-            <source src="assets/audio-fundo.mp3" type="audio/mpeg">
-            Seu navegador não suporta o elemento de áudio.
-        </audio>
-        
-        <button onclick="togglePlayPause()" class="btnAudio">
-            <p id="playPauseButton">
-                Pause music
-            </p> 
-            <img id="iconeSom" src="assets/audio.png" alt="simbolo de som" class="iconSound">     
-        </button>
-       
-    </div>
-
-    
-    <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jogo educacional de Cálculo 2 da UnB — Sequências, Séries, EDOs e Transformada de Laplace" />
+    <title>Cálculo 2 Game — UnB</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
