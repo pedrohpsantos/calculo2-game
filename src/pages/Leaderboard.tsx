@@ -4,6 +4,7 @@ import { Trophy, UserCircle, Medal } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import type { UserProfile } from '@/store/authStore'
 import { useAuthStore } from '@/store/authStore'
+import { logger } from '@/utils/logger'
 
 export function Leaderboard() {
   const { user } = useAuthStore()
@@ -29,7 +30,7 @@ export function Leaderboard() {
           }))
         setLeaders(filtered as UserProfile[])
       } catch (error) {
-        console.error('Error fetching leaderboard:', error)
+        logger.error('Error fetching leaderboard:', error)
       } finally {
         setIsLoading(false)
       }

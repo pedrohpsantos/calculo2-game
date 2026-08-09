@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { supabase } from '@/lib/supabase'
+import { logger } from '@/utils/logger'
 
 export interface UserProfile {
   id: string
@@ -74,7 +75,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
         }
       }
     } catch (error) {
-      console.error('Error initializing auth:', error)
+      logger.error('Error initializing auth:', error)
     } finally {
       set({ isLoading: false })
     }
@@ -86,7 +87,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
       if (error) throw error
       await useAuthStore.getState().initializeAuth()
     } catch (error) {
-      console.error('Email login error:', error)
+      logger.error('Email login error:', error)
       throw error
     } finally {
       set({ isLoading: false })
@@ -113,7 +114,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
         alert('Cadastro realizado! Verifique seu email para confirmar.')
       }
     } catch (error) {
-      console.error('Email signup error:', error)
+      logger.error('Email signup error:', error)
       throw error
     } finally {
       set({ isLoading: false })
@@ -129,7 +130,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
       })
       if (error) throw error
     } catch (error) {
-      console.error('Google login error:', error)
+      logger.error('Google login error:', error)
       throw error
     }
   },
@@ -141,7 +142,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
       // Re-initialize to get a new anonymous user immediately
       await useAuthStore.getState().initializeAuth()
     } catch (error) {
-      console.error('Logout error:', error)
+      logger.error('Logout error:', error)
     } finally {
       set({ isLoading: false })
     }
@@ -167,7 +168,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
         level: data.level ?? currentUser.level
       } })
     } catch (error) {
-      console.error('Error updating profile:', error)
+      logger.error('Error updating profile:', error)
       throw error
     } finally {
       set({ isLoading: false })

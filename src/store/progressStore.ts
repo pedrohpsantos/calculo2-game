@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { supabase } from '@/lib/supabase'
+import { logger } from '@/utils/logger'
 
 export interface UserProgress {
   id?: string
@@ -45,7 +46,7 @@ export const useProgressStore = create<ProgressState>()(
         set({ progress: progressMap })
       }
     } catch (error) {
-      console.error('Error fetching progress:', error)
+      logger.error('Error fetching progress:', error)
     } finally {
       set({ isLoading: false })
     }
@@ -87,7 +88,7 @@ export const useProgressStore = create<ProgressState>()(
         
       if (error) throw error
     } catch (error) {
-      console.error('Error syncing progress:', error)
+      logger.error('Error syncing progress:', error)
     }
   },
   getProgress: (slug) => get().progress[slug],

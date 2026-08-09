@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { UserCircle, ArrowLeft } from 'lucide-react'
 import { useAuthStore } from '@/store/authStore'
+import { logger } from '@/utils/logger'
 
 export function Login() {
   const navigate = useNavigate()
@@ -18,8 +19,8 @@ export function Login() {
     try {
       await loginWithGoogle()
     } catch (error) {
-      console.error(error)
-      setErrorMsg('Erro ao logar com Google. Provedor desabilitado?')
+      logger.error('Google login error:', error)
+      setErrorMsg('Erro ao logar com Google.')
     }
   }
 
@@ -33,8 +34,8 @@ export function Login() {
         await loginWithEmail(email, password)
       }
     } catch (error: any) {
-      console.error(error)
-      setErrorMsg(error.message || 'Ocorreu um erro na autenticação.')
+      logger.error('Email auth error:', error)
+      setErrorMsg('Email ou senha incorretos.')
     }
   }
 

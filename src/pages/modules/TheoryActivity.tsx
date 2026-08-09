@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, ReactNode } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MathRenderer } from '@/components/game/MathRenderer'
@@ -13,6 +13,17 @@ import { odeSystemsTheory } from '@/data/ode-systems/theory'
 import { modules } from '@/data/modules'
 import type { TheorySlide } from '@/types/theory'
 import { Button } from '@/components/ui/Button'
+
+function renderFormattedText(text: string): ReactNode[] {
+  // Regex to match **bold text**
+  const parts = text.split(/(\*\*.*?\*\*)/g)
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={index}>{part.slice(2, -2)}</strong>
+    }
+    return <React.Fragment key={index}>{part}</React.Fragment>
+  })
+}
 
 const getTheoryBySlug = (slug?: string): TheorySlide[] | null => {
   switch (slug) {
@@ -123,7 +134,9 @@ export function TheoryActivity() {
             {slide.points && slide.points.length > 0 && (
               <ul className="text-left text-base md:text-lg text-white font-body leading-relaxed max-w-3xl mx-auto space-y-4 mb-10 list-disc list-outside ml-6">
                 {slide.points.map((point, i) => (
-                  <li key={i} className="pl-2" dangerouslySetInnerHTML={{ __html: point.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+                  <li key={i} className="pl-2">
+                    {renderFormattedText(point)}
+                  </li>
                 ))}
               </ul>
             )}
