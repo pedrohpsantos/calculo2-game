@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useGameStore } from '@/store/gameStore'
 
 export function useAudio(src: string) {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const { isMusicPlaying, volume } = useGameStore()
+  const location = useLocation()
 
   useEffect(() => {
     audioRef.current = new Audio(src)
@@ -18,7 +20,10 @@ export function useAudio(src: string) {
     if (!audioRef.current) return
     audioRef.current.volume = volume
     
-    if (isMusicPlaying) {
+    const isModuleActivity = location.pathname.startsWith('/modules/') && location.pathname.length > '/modules/'.length;
+    const shouldPlayRoute = !isModuleActivity;
+    
+    if (isMusicPlaying && shouldPlayRoute) {
       const playPromise = audioRef.current.play()
       
       if (playPromise !== undefined) {
@@ -40,7 +45,7 @@ export function useAudio(src: string) {
     } else {
       audioRef.current.pause()
     }
-  }, [isMusicPlaying, volume])
+  }, [isMusicPlaying, volume, location.pathname])
 
   return audioRef
 }
