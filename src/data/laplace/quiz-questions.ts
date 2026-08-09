@@ -3,7 +3,7 @@ import type { QuizQuestion } from '@/types/quiz'
 export const laplaceQuestions: QuizQuestion[] = [
   {
     id: 'laplace-q1',
-    question: 'A Transformada de Laplace converte o que no mundo "t" para o que no mundo "s"?',
+    question: 'O que a Transformada de Laplace converte do domínio do tempo (t) para o domínio da frequência (s)?',
     category: 'Conceito',
     difficulty: 'easy',
     answers: [
@@ -15,20 +15,21 @@ export const laplaceQuestions: QuizQuestion[] = [
   },
   {
     id: 'laplace-q2',
-    question: 'Qual é a representação da Função Delta de Dirac (Impulso no tempo c) após aplicarmos a Transformada de Laplace?',
+    question: 'Complete a fórmula da Transformada de Laplace da Função Delta de Dirac (impulso no tempo c):',
     category: 'Impulso',
     difficulty: 'medium',
-    latex: '\\mathcal{L}\\{\\delta(t-c)\\} = \\text{???}',
+    mode: 'complete',
+    latexPrefix: '\\mathcal{L}\\{\\delta(t-c)\\} =',
     answers: [
       { id: 'a1', text: '0', correct: false },
       { id: 'a2', text: '1/s', correct: false },
-      { id: 'a3', text: 'e^(-cs)', correct: true },
-      { id: 'a4', text: 'e^(cs)/s', correct: false },
+      { id: 'a3', text: 'e^{-cs}', correct: true },
+      { id: 'a4', text: 'e^{cs}/s', correct: false },
     ],
   },
   {
     id: 'laplace-q3',
-    question: 'Segundo o Teorema da Convolução, a transformada de (f * g)(t) equivale a qual operação no domínio "s"?',
+    question: 'No domínio "s", a qual operação equivale a Transformada de Laplace da convolução (f * g)(t)?',
     category: 'Convolução',
     difficulty: 'hard',
     answers: [
@@ -40,27 +41,28 @@ export const laplaceQuestions: QuizQuestion[] = [
   },
   {
     id: 'laplace-q4',
-    question: 'Se aplicarmos Laplace em y\' (a primeira derivada), a fórmula que surge JÁ INCLUI algo muito importante para EDOs. O que é?',
+    question: 'Complete a fórmula da Transformada de Laplace da primeira derivada y\':',
     category: 'Condições Iniciais',
     difficulty: 'medium',
-    latex: '\\mathcal{L}\\{y^{\\prime}\\} = sY(s) - \\text{???}',
+    mode: 'complete',
+    latexPrefix: '\\mathcal{L}\\{y^{\\prime}\\} = sY(s) -',
     answers: [
-      { id: 'a1', text: 'A constante de integração C', correct: false },
-      { id: 'a2', text: 'O valor da Condição Inicial y(0)', correct: true },
-      { id: 'a3', text: 'A derivada segunda y\'\'(0)', correct: false },
-      { id: 'a4', text: 'A função Degrau de Heaviside', correct: false },
+      { id: 'a1', text: 'C', correct: false },
+      { id: 'a2', text: 'y(0)', correct: true },
+      { id: 'a3', text: 'y^{\\prime}(0)', correct: false },
+      { id: 'a4', text: 'u_c(t)', correct: false },
     ],
   },
   {
     id: 'laplace-q5',
-    question: 'A Função Degrau Unitário (Heaviside) u_c(t) é muito utilizada para modelar:',
+    question: 'Para que serve a Função Degrau Unitário (Heaviside) u_c(t) na modelagem de equações?',
     category: 'Heaviside',
     difficulty: 'easy',
     answers: [
       { id: 'a1', text: 'Impactos infinitos em zero segundos', correct: false },
-      { id: 'a2', text: 'Forças que são "ligadas" ou "desligadas" em t=c', correct: true },
+      { id: 'a2', text: 'Forças que são ligadas ou desligadas no tempo t = c', correct: true },
       { id: 'a3', text: 'Oscilações senoidais', correct: false },
-      { id: 'a4', text: 'Decaimento radioativo', correct: false },
+      { id: 'a4', text: 'Decaimento radioativo constante', correct: false },
     ],
   }
 ]

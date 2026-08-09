@@ -3,7 +3,7 @@ import type { QuizQuestion } from '@/types/quiz'
 export const odeSystemsQuestions: QuizQuestion[] = [
   {
     id: 'sys-q1',
-    question: 'Na notação de matrizes, o que o "A" representa na equação X\' = AX ?',
+    question: 'Na notação matricial da equação X\' = AX, o que representa a matriz "A"?',
     category: 'Matrizes',
     difficulty: 'easy',
     latex: '\\mathbf{X}^{\\prime} = A\\mathbf{X}',
@@ -16,19 +16,22 @@ export const odeSystemsQuestions: QuizQuestion[] = [
   },
   {
     id: 'sys-q2',
-    question: 'Para encontrar os Autovalores (λ) da matriz A, precisamos resolver qual equação envolvendo determinantes?',
+    question: 'Complete a equação determinante necessária para encontrar os autovalores (λ) de uma matriz A:',
     category: 'Autovalores',
     difficulty: 'medium',
+    mode: 'complete',
+    latexPrefix: '\\det(',
+    latexSuffix: ') = 0',
     answers: [
-      { id: 'a1', text: 'det(A * λ) = 1', correct: false },
-      { id: 'a2', text: 'det(A - λI) = 0', correct: true },
-      { id: 'a3', text: 'det(A + I) = λ', correct: false },
-      { id: 'a4', text: 'det(A) = 0', correct: false },
+      { id: 'a1', text: 'A \\cdot \\lambda', correct: false },
+      { id: 'a2', text: 'A - \\lambda I', correct: true },
+      { id: 'a3', text: 'A + I', correct: false },
+      { id: 'a4', text: 'A', correct: false },
     ],
   },
   {
     id: 'sys-q3',
-    question: 'Ao montar a Matriz Fundamental Φ(t) colocando as soluções do sistema lado a lado, o que o cálculo de det(Φ(t)) nos fornece?',
+    question: 'O que o determinante da Matriz Fundamental Φ(t) nos fornece?',
     category: 'Independência Linear',
     difficulty: 'medium',
     answers: [
@@ -40,15 +43,17 @@ export const odeSystemsQuestions: QuizQuestion[] = [
   },
   {
     id: 'sys-q4',
-    question: 'Para resolver um Sistema Não-Homogêneo X\' = AX + F(t), a fórmula da Variação dos Parâmetros exige que você saiba calcular qual operação matricial sobre a Matriz Fundamental Φ?',
+    question: 'Complete a fórmula da solução particular pela Variação dos Parâmetros para um sistema não-homogêneo:',
     category: 'Não-Homogêneas',
     difficulty: 'hard',
-    latex: '\\mathbf{X}_p(t) = \\Phi(t) \\int \\Phi^{-1}(t) F(t) dt',
+    mode: 'complete',
+    latexPrefix: '\\mathbf{X}_p(t) = \\Phi(t) \\int',
+    latexSuffix: 'F(t) dt',
     answers: [
-      { id: 'a1', text: 'A Matriz Transposta', correct: false },
-      { id: 'a2', text: 'A Matriz Inversa (Φ⁻¹)', correct: true },
-      { id: 'a3', text: 'A Matriz Adjunta', correct: false },
-      { id: 'a4', text: 'O Traço da Matriz', correct: false },
+      { id: 'a1', text: '\\Phi^T(t)', correct: false },
+      { id: 'a2', text: '\\Phi^{-1}(t)', correct: true },
+      { id: 'a3', text: '\\text{adj}(\\Phi(t))', correct: false },
+      { id: 'a4', text: '\\text{tr}(\\Phi(t))', correct: false },
     ],
   }
 ]

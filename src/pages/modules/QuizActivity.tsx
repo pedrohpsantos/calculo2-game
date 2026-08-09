@@ -137,7 +137,7 @@ export function QuizActivity() {
         >
           {/* Question Header (Themed) */}
           <div 
-            className="mb-10 text-center bg-surface-light/40 backdrop-blur-lg border p-6 md:p-10 rounded-3xl shadow-xl w-full"
+            className="mb-6 text-center bg-surface-light/40 backdrop-blur-lg border p-6 md:p-10 rounded-3xl shadow-xl w-full"
             style={{ borderColor: `${mod.color}40` }}
           >
             <span 
@@ -150,38 +150,77 @@ export function QuizActivity() {
               {question.question}
             </h2>
             
-            {question.latex && (
-              <div className="mt-2 flex justify-center w-full">
-                <div 
-                  className="px-6 py-8 bg-black/40 rounded-2xl text-lg md:text-xl shadow-inner border overflow-x-auto max-w-full"
-                  style={{ borderColor: `${mod.color}30` }}
-                >
-                  <MathRenderer expression={question.latex} />
-                </div>
+            {question.mode === 'complete' ? (
+              <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-4 bg-black/40 p-6 rounded-2xl border" style={{ borderColor: `${mod.color}30` }}>
+                {question.latexPrefix && (
+                  <div className="text-xl md:text-2xl text-white"><MathRenderer expression={question.latexPrefix} /></div>
+                )}
+                
+                <DndContext onDragEnd={handleDragEnd}>
+                  <div className="relative">
+                    <Dropzone 
+                      id="dropzone" 
+                      isCorrect={isCorrect}
+                      droppedItem={droppedId ? question.answers.find(a => a.id === droppedId) : null}
+                    />
+                  </div>
+
+                  <div className="fixed bottom-0 left-0 right-0 p-4 bg-surface-dark/95 backdrop-blur-xl border-t border-white/10 z-50">
+                    <div className="max-w-4xl mx-auto">
+                      <p className="text-center text-text-muted text-sm mb-4">Arraste a opção correta para a lacuna acima</p>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {question.answers.map(answer => (
+                          <DraggableCard 
+                            key={answer.id} 
+                            id={answer.id} 
+                            text={answer.text} 
+                            disabled={droppedId === answer.id || isCorrect === true}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </DndContext>
+
+                {question.latexSuffix && (
+                  <div className="text-xl md:text-2xl text-white"><MathRenderer expression={question.latexSuffix} /></div>
+                )}
               </div>
+            ) : (
+              <>
+                {question.latex && (
+                  <div className="mt-2 flex justify-center w-full">
+                    <div 
+                      className="px-6 py-8 bg-black/40 rounded-2xl text-lg md:text-xl shadow-inner border overflow-x-auto max-w-full"
+                      style={{ borderColor: `${mod.color}30` }}
+                    >
+                      <MathRenderer expression={question.latex} />
+                    </div>
+                  </div>
+                )}
+                
+                <DndContext onDragEnd={handleDragEnd}>
+                  <div className="mt-2 mb-12 flex justify-center">
+                    <Dropzone 
+                      id="dropzone" 
+                      isCorrect={isCorrect}
+                      droppedItem={droppedId ? question.answers.find(a => a.id === droppedId) : null}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mt-auto">
+                    {question.answers.map(answer => (
+                      <DraggableCard 
+                        key={answer.id} 
+                        id={answer.id} 
+                        text={answer.text} 
+                        disabled={droppedId === answer.id || isCorrect === true}
+                      />
+                    ))}
+                  </div>
+                </DndContext>
+              </>
             )}
-          </div>
-
-          <DndContext onDragEnd={handleDragEnd}>
-            <div className="mt-2 mb-12 flex justify-center">
-              <Dropzone 
-                id="dropzone" 
-                isCorrect={isCorrect}
-                droppedItem={droppedId ? question.answers.find(a => a.id === droppedId) : null}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mt-auto">
-              {question.answers.map(answer => (
-                <DraggableCard 
-                  key={answer.id} 
-                  id={answer.id} 
-                  text={answer.text} 
-                  disabled={droppedId === answer.id || isCorrect === true}
-                />
-              ))}
-            </div>
-          </DndContext>
 
           {/* Next Button */}
           <AnimatePresence>

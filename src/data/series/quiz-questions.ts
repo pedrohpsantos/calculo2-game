@@ -3,10 +3,11 @@ import type { QuizQuestion } from '@/types/quiz'
 export const seriesQuestions: QuizQuestion[] = [
   {
     id: 'series-q1',
-    question: 'Para qual intervalo a Série Geométrica infinita de razão r converge?',
+    question: 'Complete a condição para que a Série Geométrica infinita de razão r convirja:',
     category: 'Série Geométrica',
     difficulty: 'easy',
-    latex: '\\sum_{n=0}^{\\infty} a r^n',
+    mode: 'complete',
+    latexPrefix: '\\text{Converge se }',
     answers: [
       { id: 'a1', text: '|r| > 1', correct: false },
       { id: 'a2', text: 'r = 1', correct: false },
@@ -16,7 +17,7 @@ export const seriesQuestions: QuizQuestion[] = [
   },
   {
     id: 'series-q2',
-    question: 'De acordo com o Teste da Razão, se calcularmos L = limite de |a(n+1)/a(n)| e obtivermos L = 1, o que podemos concluir?',
+    question: 'O que o Teste da Razão conclui quando o limite L = 1?',
     category: 'Teste da Razão',
     difficulty: 'medium',
     latex: 'L = \\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right| = 1',
@@ -29,7 +30,7 @@ export const seriesQuestions: QuizQuestion[] = [
   },
   {
     id: 'series-q3',
-    question: 'Uma p-série tem o formato sum(1/n^p). Para quais valores de p a série CONVERGE?',
+    question: 'Para quais valores de p a p-série converge?',
     category: 'Séries p',
     difficulty: 'easy',
     latex: '\\sum_{n=1}^{\\infty} \\frac{1}{n^p}',
@@ -42,7 +43,7 @@ export const seriesQuestions: QuizQuestion[] = [
   },
   {
     id: 'series-q4',
-    question: 'A série harmônica alternada converge, mas a série harmônica pura diverge. Como classificamos a convergência da harmônica alternada?',
+    question: 'Como é classificada a convergência da série harmônica alternada, sabendo que a harmônica pura diverge?',
     category: 'Convergência',
     difficulty: 'hard',
     latex: '\\sum_{n=1}^{\\infty} \\frac{(-1)^{n-1}}{n}',
@@ -55,7 +56,7 @@ export const seriesQuestions: QuizQuestion[] = [
   },
   {
     id: 'series-q5',
-    question: 'Para aplicar o Teste da Integral em uma série, a função contínua f(x) associada deve ser OBRIGATORIAMENTE:',
+    question: 'Quais são as condições obrigatórias da função f(x) para aplicarmos o Teste da Integral?',
     category: 'Teste da Integral',
     difficulty: 'medium',
     answers: [

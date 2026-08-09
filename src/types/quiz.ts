@@ -1,7 +1,10 @@
 export interface QuizQuestion {
   id: string
   question: string
+  mode?: 'drag' | 'complete'
   latex?: string
+  latexPrefix?: string
+  latexSuffix?: string
   answers: QuizAnswer[]
   category: string
   difficulty: 'easy' | 'medium' | 'hard'

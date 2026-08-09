@@ -3,7 +3,7 @@ import type { QuizQuestion } from '@/types/quiz'
 export const odeHigherOrderQuestions: QuizQuestion[] = [
   {
     id: 'ho-q1',
-    question: 'Para uma EDO linear homogênea de coeficientes constantes como y\'\' - 5y\' + 6y = 0, a Equação Característica associada será:',
+    question: 'Qual é a Equação Característica da EDO linear homogênea com coeficientes constantes y\'\' - 5y\' + 6y = 0?',
     category: 'Equação Característica',
     difficulty: 'easy',
     latex: 'y^{\\prime\\prime} - 5y^{\\prime} + 6y = 0',
@@ -16,19 +16,22 @@ export const odeHigherOrderQuestions: QuizQuestion[] = [
   },
   {
     id: 'ho-q2',
-    question: 'Segundo o Teorema de Abel, para a equação y\'\' + P(x)y\' + Q(x)y = 0, o Wronskiano W(x) é dado por qual expressão?',
+    question: 'Complete a fórmula do Wronskiano W(x) dada pelo Teorema de Abel para a equação y\'\' + P(x)y\' + Q(x)y = 0:',
     category: 'Teorema de Abel',
     difficulty: 'medium',
+    mode: 'complete',
+    latexPrefix: 'W(x) = C e^{',
+    latexSuffix: '}',
     answers: [
-      { id: 'a1', text: 'W(x) = C * e^(∫Q(x)dx)', correct: false },
-      { id: 'a2', text: 'W(x) = C * e^(-∫P(x)dx)', correct: true },
-      { id: 'a3', text: 'W(x) = P(x) - Q(x)', correct: false },
-      { id: 'a4', text: 'W(x) = 0', correct: false },
+      { id: 'a1', text: '\\int Q(x)dx', correct: false },
+      { id: 'a2', text: '- \\int P(x)dx', correct: true },
+      { id: 'a3', text: 'P(x) - Q(x)', correct: false },
+      { id: 'a4', text: '0', correct: false },
     ],
   },
   {
     id: 'ho-q3',
-    question: 'Para resolver uma EDO Não-Homogênea com termo fonte F(t) = tan(t), qual método DEVE ser utilizado?',
+    question: 'Qual método resolve uma EDO não-homogênea cujo termo fonte é F(t) = tan(t)?',
     category: 'Não-Homogêneas',
     difficulty: 'medium',
     answers: [
@@ -40,7 +43,7 @@ export const odeHigherOrderQuestions: QuizQuestion[] = [
   },
   {
     id: 'ho-q4',
-    question: 'Na Variação dos Parâmetros, nós transformamos y_h = C_1*y_1 + C_2*y_2 substituindo C_1 e C_2 por funções u_1(t) e u_2(t). Qual determinante fica no DENOMINADOR da fórmula para encontrar u_1\' e u_2\'?',
+    question: 'No método de Variação dos Parâmetros, qual determinante fica no denominador da fórmula de u_1\' e u_2\'?',
     category: 'Variação dos Parâmetros',
     difficulty: 'hard',
     answers: [
@@ -52,7 +55,7 @@ export const odeHigherOrderQuestions: QuizQuestion[] = [
   },
   {
     id: 'ho-q5',
-    question: 'Se a equação característica tiver raízes reais iguais (r1 = r2), a segunda solução da EDO recebe qual "multiplicador" extra para garantir independência linear?',
+    question: 'Se a equação característica possui raízes reais e iguais, pelo que devemos multiplicar a segunda solução para garantir independência linear?',
     category: 'Raízes',
     difficulty: 'easy',
     answers: [

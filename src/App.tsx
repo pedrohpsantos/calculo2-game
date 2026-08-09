@@ -12,6 +12,7 @@ import { ModuleHub } from '@/pages/modules/ModuleHub'
 import { PlaceholderActivity } from '@/pages/modules/PlaceholderActivity'
 import { QuizActivity } from '@/pages/modules/QuizActivity'
 import { TheoryActivity } from '@/pages/modules/TheoryActivity'
+import { FlashcardActivity } from '@/pages/modules/FlashcardActivity'
 import { useAuthStore } from '@/store/authStore'
 import { useProgressStore } from '@/store/progressStore'
 
@@ -44,7 +45,7 @@ export default function App() {
           <Route path="/modules/:moduleSlug" element={<ModuleHub />} />
           <Route path="/modules/:moduleSlug/theory" element={<TheoryActivity />} />
           <Route path="/modules/:moduleSlug/quiz" element={<QuizActivity />} />
-          <Route path="/modules/:moduleSlug/flashcards" element={<PlaceholderActivity activity="Flashcards" />} />
+          <Route path="/modules/:moduleSlug/flashcards" element={<FlashcardActivity />} />
           <Route path="/modules/:moduleSlug/challenge" element={<PlaceholderActivity activity="Desafio" />} />
         </Route>
       </Routes>

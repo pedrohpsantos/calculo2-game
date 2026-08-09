@@ -11,13 +11,17 @@ export interface UserProfile {
 
 interface AuthState {
   user: UserProfile | null
+  isAnonymous: boolean
   isLoading: boolean
   setUser: (user: UserProfile | null) => void
   initializeAuth: () => Promise<void>
+  loginWithGoogle: () => Promise<void>
+  logout: () => Promise<void>
 }
 
 export const useAuthStore = create<AuthState>()((set) => ({
   user: null,
+  isAnonymous: true,
   isLoading: true,
   setUser: (user) => set({ user }),
   initializeAuth: async () => {
@@ -35,6 +39,9 @@ export const useAuthStore = create<AuthState>()((set) => ({
         if (authError) throw authError
         user = authData.user
       }
+
+      const isAnon = user?.is_anonymous ?? false
+      set({ isAnonymous: isAnon })
 
       if (user) {
         // Fetch or create profile
@@ -64,4 +71,31 @@ export const useAuthStore = create<AuthState>()((set) => ({
       set({ isLoading: false })
     }
   },
+  loginWithGoogle: async () => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: window.location.origin,
+        },
+      })
+      if (error) throw error
+    } catch (error) {
+      console.error('Google login error:', error)
+      throw error
+    }
+  },
+  logout: async () => {
+    try {
+      set({ isLoading: true })
+      await supabase.auth.signOut()
+      set({ user: null })
+      // Re-initialize to get a new anonymous user immediately
+      await useAuthStore.getState().initializeAuth()
+    } catch (error) {
+      console.error('Logout error:', error)
+    } finally {
+      set({ isLoading: false })
+    }
+  }
 }))

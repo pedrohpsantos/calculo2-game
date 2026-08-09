@@ -5,9 +5,9 @@ export const seriesTheory: TheorySlide[] = [
     id: 'series-t1',
     title: 'O Paradoxo de Zenão 🐢',
     points: [
-      "Uma soma de **infinitos pedaços** pode ter valor finito.",
-      "Você sempre anda uma fração do caminho e chega do outro lado.",
-      "Isso fundamenta o conceito matemático de **Séries**."
+      "O antigo paradoxo grego desafiava o movimento: para chegar ao fim, você deve primeiro cruzar a metade do caminho (1/2), depois a metade do que falta (1/4), depois 1/8, e assim sucessivamente.",
+      "A intuição diz que somar infinitos pedaços deveria resultar no infinito, tornando o movimento impossível. Porém, Zenão esbarrou sem saber no conceito do cálculo de limite.",
+      "A matemática moderna resolve o paradoxo provando que **uma soma rigorosamente infinita de parcelas que diminuem rápido o suficiente pode, de fato, convergir perfeitamente para um valor numérico finito e exato**."
     ],
     latex: '\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + ... = 1'
   },
@@ -15,9 +15,9 @@ export const seriesTheory: TheorySlide[] = [
     id: 'series-t2',
     title: 'Série Geométrica: A Multiplicação Infinita',
     points: [
-      "Cada termo atinge uma fração **(r)** do anterior.",
-      "Se **|r| < 1**, a série CONVERGE para um número.",
-      "Se **|r| ≥ 1**, ela DIVERGE para o infinito."
+      "A Série Geométrica é a estrutura fundacional do estudo de séries. Nela, cada termo subsequente é gerado multiplicando o anterior por uma taxa constante chamada **razão (r)**.",
+      "O comportamento da série depende unicamente do módulo da razão. Se **|r| < 1**, os termos encolhem de forma exponencial e a série soma até um valor perfeitamente previsível e finito: **a / (1-r)**.",
+      "Entretanto, se a taxa multiplicativa for forte demais, ou seja, **|r| ≥ 1**, os termos não diminuem em direção ao zero, e a soma expande implacavelmente, divergindo para o infinito."
     ],
     latex: '\\sum_{n=0}^{\\infty} a r^n = \\frac{a}{1-r}'
   },
@@ -25,9 +25,9 @@ export const seriesTheory: TheorySlide[] = [
     id: 'series-t3',
     title: 'A Decepção Harmônica 💔',
     points: [
-      "A soma de **1/n** parece ficar muito pequena.",
-      "Ela cresce de forma muito, muito lenta.",
-      "No fim, ela explode e **DIVERGE para o infinito**."
+      "A Série Harmônica, que soma os recíprocos dos números naturais (1 + 1/2 + 1/3 + ...), é a maior armadilha intuitiva do cálculo.",
+      "Embora os termos (1/n) nitidamente fiquem cada vez menores e eventualmente tendam a zero, eles **não diminuem rápido o suficiente** para frear o acúmulo da soma.",
+      "A longo prazo matemático, o somatório continua crescendo implacavelmente e lentamente sem encontrar um teto numérico limitante absoluto. Resultado final: a série **diverge**."
     ],
     latex: '\\sum_{n=1}^{\\infty} \\frac{1}{n} = \\infty'
   },
@@ -35,9 +35,9 @@ export const seriesTheory: TheorySlide[] = [
     id: 'series-t4',
     title: 'Teste da Integral 📐',
     points: [
-      "Trata a série como **área embaixo de uma curva**.",
-      "Se a integral imprópria **converge**, a série converge.",
-      "Se a integral **diverge**, a série também explode."
+      "Este elegante teste matemático cria uma ponte perfeita entre as ferramentas do Cálculo Discreto e Contínuo.",
+      "Ele exige que traduzamos os termos da série discreta na representação gráfica de uma função **contínua, positiva e decrescente**.",
+      "A regra é implacável: calcular o limite superior da série equivale perfeitamente a calcular a **área sob a curva através de uma integral imprópria**. Ambas sempre convergirão juntas ou divergirão juntas."
     ],
     latex: '\\int_1^{\\infty} f(x)dx \\text{ converge } \\iff \\sum_{n=1}^{\\infty} a_n \\text{ converge}'
   },
@@ -45,9 +45,9 @@ export const seriesTheory: TheorySlide[] = [
     id: 'series-t5',
     title: 'Testes de Comparação 🔍',
     points: [
-      "Compara sua série com **Séries p** ou **Geométricas**.",
-      "Se é **menor que uma que converge**, ela converge.",
-      "Se é **maior que uma que diverge**, ela diverge."
+      "Muitas vezes avaliar diretamente a série é impossível; aplicamos então a técnica de **comparação de limites numéricos no infinito**.",
+      "Confrontamos nossa série misteriosa diretamente com a anatomia de uma série de comportamento perfeitamente conhecido (como Séries P ou Geométricas).",
+      "Pela lógica do encapsulamento: **se é sempre menor que uma série convergente domada, ela converge**. Se é **maior que uma série explosiva divergente, ela diverge inevitavelmente**."
     ],
     latex: '\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = c > 0'
   },
@@ -55,9 +55,9 @@ export const seriesTheory: TheorySlide[] = [
     id: 'series-t6',
     title: 'A Dupla Imbatível: Razão e Raiz ⚡',
     points: [
-      "Calcula limite de **|a_{n+1}/a_n|** ou **raiz n-ésima**.",
-      "Se limite **< 1**, Converge Absolutamente.",
-      "Se limite **> 1**, Diverge. Se for 1, o teste **falha**."
+      "Os célebres Testes da Razão (d'Alembert) e da Raiz (Cauchy) procuram o 'DNA geométrico' oculto na formação da série.",
+      "No Teste da Razão, extraímos a essência avaliando o limite no infinito de **|a_{n+1} / a_n|**. No Teste da Raiz, avaliamos o limite da **raiz n-ésima** do enésimo termo.",
+      "A lei universal: se a taxa dominante limitante L **< 1, ela converge absolutamente**. Se L **> 1, ela escapa para o infinito**. Se for cravado L = 1, a precisão analítica **falha inconclusivamente**."
     ],
     latex: 'L = \\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right|'
   },
@@ -65,9 +65,9 @@ export const seriesTheory: TheorySlide[] = [
     id: 'series-t7',
     title: 'Séries Alternadas e o Caos (+ - + -)',
     points: [
-      "Sinais alternam, e exige termos **decrescendo até 0**.",
-      "Pode convergir assim, mas divergir sem os sinais (**Convergência Condicional**).",
-      "Se converge com e sem sinais, é **Convergência Absoluta**."
+      "Uma complexa subtrama de convergência surge nas Séries Alternadas, onde os termos balançam eternamente somando e subtraindo de forma pendular ininterrupta.",
+      "O Teorema rigoroso de Leibniz impõe a regra final: basta que as parcelas puramente numéricas absolutas independentes estejam descendo monotonicamente ativas limitando-se **gradualmente até 0**.",
+      "Séries assim possuem uma sobreposição milagrosa de sinais opostos restritivos perfeitamente perdoando a divergência original dos termos, garantindo então a chamada salvadora **Convergência Condicional**."
     ],
     latex: '\\sum_{n=1}^{\\infty} (-1)^{n-1} b_n'
   }

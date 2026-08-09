@@ -3,7 +3,7 @@ import type { QuizQuestion } from '@/types/quiz'
 export const odeFirstOrderQuestions: QuizQuestion[] = [
   {
     id: 'ode-q1',
-    question: 'Qual método deve ser usado para resolver a equação dy/dx = (x^2) * y^3 ?',
+    question: 'Qual método resolve a equação dy/dx = (x^2) * y^3?',
     category: 'Classificação',
     difficulty: 'easy',
     answers: [
@@ -15,20 +15,21 @@ export const odeFirstOrderQuestions: QuizQuestion[] = [
   },
   {
     id: 'ode-q2',
-    question: 'Para a EDO M(x,y)dx + N(x,y)dy = 0 ser considerada EXATA, qual condição é necessária e suficiente (em um domínio simples)?',
+    question: 'Complete a condição para que a EDO M(x,y)dx + N(x,y)dy = 0 seja EXATA:',
     category: 'Exatas',
     difficulty: 'medium',
-    latex: '\\frac{\\partial M}{\\partial y} = \\text{???}',
+    mode: 'complete',
+    latexPrefix: '\\frac{\\partial M}{\\partial y} =',
     answers: [
-      { id: 'a1', text: 'Derivada parcial de N em relação a y', correct: false },
-      { id: 'a2', text: 'Derivada parcial de N em relação a x', correct: true },
-      { id: 'a3', text: 'Derivada de N em relação a t', correct: false },
+      { id: 'a1', text: '\\frac{\\partial N}{\\partial y}', correct: false },
+      { id: 'a2', text: '\\frac{\\partial N}{\\partial x}', correct: true },
+      { id: 'a3', text: '\\frac{\\partial M}{\\partial x}', correct: false },
       { id: 'a4', text: '0', correct: false },
     ],
   },
   {
     id: 'ode-q3',
-    question: 'Quando aplicamos o Fator Integrante μ(x) = e^(∫P(x)dx) na equação y\' + P(x)y = Q(x), o lado esquerdo da equação se transforma no quê?',
+    question: 'Na equação linear y\' + P(x)y = Q(x), aplicar o Fator Integrante μ(x) transforma o lado esquerdo em quê?',
     category: 'Linear',
     difficulty: 'medium',
     answers: [
@@ -40,7 +41,7 @@ export const odeFirstOrderQuestions: QuizQuestion[] = [
   },
   {
     id: 'ode-q4',
-    question: 'Qual destas equações é classificada como NÃO-LINEAR?',
+    question: 'Qual das seguintes equações é NÃO-LINEAR?',
     category: 'Classificação',
     difficulty: 'easy',
     answers: [
@@ -52,14 +53,14 @@ export const odeFirstOrderQuestions: QuizQuestion[] = [
   },
   {
     id: 'ode-q5',
-    question: 'Na substituição para EDOs de forma homogênea (fração de polinômios de mesmo grau), usamos a substituição y = vx. O que essa substituição faz?',
+    question: 'Ao resolver uma EDO homogênea usando a substituição y = vx, no que a equação se transforma?',
     category: 'Homogênea',
     difficulty: 'hard',
     answers: [
-      { id: 'a1', text: 'Transforma a EDO em Separável', correct: true },
-      { id: 'a2', text: 'Transforma a EDO em Exata', correct: false },
-      { id: 'a3', text: 'Zera as derivadas segundas', correct: false },
-      { id: 'a4', text: 'Resolve a EDO imediatamente sem integrais', correct: false },
+      { id: 'a1', text: 'Equação Separável', correct: true },
+      { id: 'a2', text: 'Equação Exata', correct: false },
+      { id: 'a3', text: 'Equação Linear Simples', correct: false },
+      { id: 'a4', text: 'Equação de Bernoulli', correct: false },
     ],
   }
 ]
