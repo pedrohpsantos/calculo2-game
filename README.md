@@ -1,4 +1,4 @@
-# EDO Game: A Jornada do Cálculo 2 🎮✖️
+# EDO Game: A Jornada do Cálculo 2 
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/pedrohpsantos/calculos2-game)
 ![GitHub Action](https://img.shields.io/github/actions/workflow/status/pedrohpsantos/calculos2-game/ci.yml?branch=main)
@@ -120,15 +120,6 @@ Qualquer novo commit direcionado à branch `main` passa por um pipeline automát
 - `lint`, `build` e `test` na raiz do `/backend`.
 
 Se qualquer teste ou verificação falhar, o build do Vercel é automaticamente suspenso para preservar a saúde do ambiente de produção.
-
----
-
-## 🤫 Easter Eggs
-
-Para quem explora cada canto, o EDO Game possui algumas surpresas:
-- Toque rápido e repetido (5x) no título da tela (`Cálculo 2`) ativará a comemoração *Tatiane*.
-- Toque rápido (5x) na sua foto de avatar ativará a mágica do *Laplace*.
-- No computador, as palavras-chave `tatiane` ou `laplace` digitadas soltas pelo teclado ativam o efeito clássico.
 
 ---
 *Foco nos estudos e divirta-se!* ☕🚀
