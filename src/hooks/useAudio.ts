@@ -17,8 +17,26 @@ export function useAudio(src: string) {
   useEffect(() => {
     if (!audioRef.current) return
     audioRef.current.volume = volume
+    
     if (isMusicPlaying) {
-      audioRef.current.play().catch(() => {})
+      const playPromise = audioRef.current.play()
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay was prevented by the browser. 
+          // We wait for the first user interaction to start playing.
+          const startAudioOnInteract = () => {
+            if (audioRef.current && isMusicPlaying) {
+              audioRef.current.play().catch(() => {})
+            }
+            window.removeEventListener('click', startAudioOnInteract)
+            window.removeEventListener('keydown', startAudioOnInteract)
+          }
+          
+          window.addEventListener('click', startAudioOnInteract)
+          window.addEventListener('keydown', startAudioOnInteract)
+        })
+      }
     } else {
       audioRef.current.pause()
     }

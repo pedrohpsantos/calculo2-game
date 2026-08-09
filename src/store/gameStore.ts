@@ -13,7 +13,7 @@ interface GameState {
 export const useGameStore = create<GameState>()(
   persist(
     (set) => ({
-      isMusicPlaying: false,
+      isMusicPlaying: true,
       volume: 0.5,
       currentModule: null,
       toggleMusic: () => set((s) => ({ isMusicPlaying: !s.isMusicPlaying })),
