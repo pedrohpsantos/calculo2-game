@@ -42,12 +42,7 @@ export function Leaderboard() {
 
   return (
     <div className="min-h-screen pt-20 pb-12 px-4 max-w-3xl mx-auto flex flex-col relative">
-      <button 
-        onClick={() => navigate(-1)}
-        className="absolute top-8 left-4 p-3 bg-surface-light/50 hover:bg-surface-light rounded-full text-text-muted hover:text-white transition-all backdrop-blur-md border border-white/5"
-      >
-        <ArrowLeft size={24} />
-      </button>
+
 
       <div className="text-center mb-12">
         <div className="inline-flex items-center justify-center w-20 h-20 bg-yellow-500/20 rounded-full border border-yellow-500/30 mb-6">
