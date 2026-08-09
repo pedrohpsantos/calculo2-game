@@ -23,7 +23,7 @@ Este projeto foi construído do zero focando em performance, legibilidade e Desi
 - **[Framer Motion](https://www.framer.com/motion/):** Animações suaves de transição de telas e barras de progresso.
 - **[dnd-kit](https://dndkit.com/):** Biblioteca leve para as interações de *Drag and Drop* no Quiz.
 - **[KaTeX](https://katex.org/):** Renderização nativa e otimizada de fórmulas matemáticas em alta resolução.
-- **[Supabase](https://supabase.com/):** Backend-as-a-Service para persistência e sincronização em tempo real do progresso dos alunos (PostgreSQL + Auth).
+- **[Supabase](https://supabase.com/):** Backend-as-a-Service para persistência, banco de dados (PostgreSQL) e Autenticação (OAuth Google e Email/Senha).
 - **[Zustand](https://github.com/pmndrs/zustand):** Gerenciamento de estados globais super eficiente.
 
 ## 🚀 Como rodar localmente
@@ -31,7 +31,14 @@ Este projeto foi construído do zero focando em performance, legibilidade e Desi
 ### 1. Requisitos
 Você precisará do [Node.js](https://nodejs.org/) instalado em sua máquina.
 
-### 2. Clonando e Instalando
+### 2. Configurando o Ambiente
+Crie um arquivo `.env` na raiz do projeto com as chaves do seu projeto do Supabase:
+```env
+VITE_SUPABASE_URL=seu-supabase-url
+VITE_SUPABASE_ANON_KEY=sua-anon-key
+```
+
+### 3. Clonando e Instalando
 ```bash
 git clone https://github.com/pedrohpsantos/edo-game.git
 cd edo-game
@@ -44,6 +51,11 @@ Para iniciar o servidor de desenvolvimento:
 npm run dev
 ```
 O jogo estará rodando em `http://localhost:5173`.
+
+### 5. Easter Eggs 🥚
+Nós implementamos alguns segredos interativos para os estudantes mais curiosos:
+- Digite `tatiane` ou `laplace` no teclado em qualquer lugar do jogo.
+- Tente encontrar e interagir com a fórmula de Euler na página inicial!
 
 ---
 *Criado com dedicação e muito café. Foco nos estudos e divirta-se!* ☕🚀
