@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import bg1 from '@/assets/backgrounds/1.png'
 import { MathRenderer } from '@/components/game/MathRenderer'

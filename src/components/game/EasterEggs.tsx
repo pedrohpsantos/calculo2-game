@@ -3,7 +3,7 @@ import confetti from 'canvas-confetti'
 import { motion, AnimatePresence } from 'framer-motion'
 
 function useKeySequence(sequence: string, callback: () => void) {
-  const [keyBuffer, setKeyBuffer] = useState('')
+  const [, setKeyBuffer] = useState('')
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

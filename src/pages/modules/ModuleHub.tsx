@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { modules } from '@/data/modules'
 import { BookOpen, Gamepad2, Layers, GripVertical } from 'lucide-react'
 import { MathRenderer } from '@/components/game/MathRenderer'
